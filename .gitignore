@@ -1,0 +1,17 @@
+.idea/*
+out/*
+IFMO.iml
+target/
+.idea/
+out/
+.idea
+.repository/
+*.iml
+*.iws
+*.jrtc
+*.java
+*.class
+*.info
+*.properties
+*.jar
+
