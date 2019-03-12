@@ -11,14 +11,20 @@ public class Task7 {
 
         int count = 0;
 
-        for (int x = 0; x < 24; x++) {
+        for (int x = 00; x < 24; x++) {
 
-            for (int y = 0; y < 60 ; y++) {
+            for (int y = 00; y < 60 ; y++) {
 
+                int x1 = x % 10;
+                int x2 = x / 10 % 10;
 
+                int y1 = y % 10;
+                int y2 = y / 10 % 10;
 
-                if (x==y)
+                if (x1==y2 && x2 == y1)
+
                     System.out.println(x + ":" + y);
+
             }
 
         }
