@@ -9,16 +9,22 @@ public class Task4 {
 //    Проверьте, является ли натуральное число — простым.
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        int i=0;
 
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Введите число: ");
 
-        int i = scanner.nextInt();
+        try {
+            i=scanner.nextInt();
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Вы ввели не число");
+            return;
+        }
 
-        if (i <= 0 )
-        { System.out.println("Вы ввели не натуральное число");
-
-        return;
+        if (i <= 0 ) {
+            System.out.println("Вы ввели не натуральное число");
+            return;
         }
 
 

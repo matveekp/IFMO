@@ -21,16 +21,22 @@ public class Task7 {
                 int y1 = y % 10;
                 int y2 = y / 10 % 10;
 
-                if (x1==y2 && x2 == y1)
+
+                if (x1==y2 && x2 == y1) {
 
                     //System.out.println(x + ":" + y);
 
-                    System.out.println(String.format("%02d:%02d", x, y ));
+                    System.out.println(String.format("%02d:%02d", x, y));
+
+                    count++;
+                }
 
             }
 
         }
 
+        System.out.println("------------------");
+        System.out.println(count);
 
     }
 }

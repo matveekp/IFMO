@@ -10,23 +10,14 @@ public class Task8 {
 
     public static void main(String[] args) {
 
-
         int count = 0;
 
-        for (int i = 1; i <= 50000; i++) {
-
-
-        int a = i / 10000 % 10;
-        int b = i / 1000 % 10;
-        int c = i / 100 % 10;
-        int d = i / 10 % 10;
-        int e = i % 10;
-
-        if (a == 2 || b == 2 || c == 2 || d == 2 || e == 2)
-            count++;
-
+        for (int i = 0; i <= 50000 ; i++) {
+            if (Integer.valueOf(i).toString().contains("2"))
+                count++;
         }
 
         System.out.println(count);
+
     }
 }
