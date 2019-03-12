@@ -1,2 +1,2 @@
 
-# IFMO homework for course Java Junior Developer   
+# IFMO Java Junior Developer homework and lessons
