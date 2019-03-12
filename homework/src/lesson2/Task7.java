@@ -23,7 +23,9 @@ public class Task7 {
 
                 if (x1==y2 && x2 == y1)
 
-                    System.out.println(x + ":" + y);
+                    //System.out.println(x + ":" + y);
+
+                    System.out.println(String.format("%02d:%02d", x, y ));
 
             }
 
