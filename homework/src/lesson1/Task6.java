@@ -9,7 +9,9 @@ public class Task6 {
 
     public static void main(String[] args) {
 
-        int x = 613;
+//        int x = 613;
+
+        int x = (int) (Math.random()*(999-100));
 
         int a = x % 10;
         int b = x / 10 % 10;
