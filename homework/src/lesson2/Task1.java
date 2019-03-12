@@ -12,27 +12,16 @@ public class Task1 {
 
     public static void main(String[] args) {
 
-    int a,b,c;
+    int a = 5;
+    int b = -2;
+    int c = 9;
 
-    Scanner scanner = new Scanner(System.in);
-
-    System.out.println("Введите 3 числа через пробел");
-    String[] list = scanner.nextLine().split(" ");
-
-    int[] array = new int[list.length];
-
-        for (int i = 0; i < array.length ; i++) {
-            array[i] = Integer.parseInt(list[i]);
-        }
-
+    int[] array = {a,b,c};
     Arrays.sort(array);
 
-
-
-        for (int i : array) {
-            System.out.print(i + " ");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
-
 
 
     }

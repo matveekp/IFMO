@@ -9,14 +9,8 @@ public class Task2 {
         int start = 90;
 
         while (start>0) {
-
             System.out.print(start + " ");
             start-=5;
-
-
         }
-
-
-
     }
 }
