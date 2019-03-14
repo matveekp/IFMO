@@ -1,7 +1,5 @@
 package lesson3;
 
-import java.util.Arrays;
-import java.util.Collections;
 
 public class Task2 {
 //    Задача 2
