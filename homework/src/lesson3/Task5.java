@@ -14,7 +14,6 @@ public class Task5 {
         String changeString;
         String newString;
 
-        StringBuilder sb = new StringBuilder();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите строку");
