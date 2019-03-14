@@ -12,7 +12,6 @@ public class Task5 {
         String string;
         String findString;
         String changeString;
-        String newString;
 
         Scanner scanner = new Scanner(System.in);
 
@@ -26,9 +25,7 @@ public class Task5 {
         System.out.println("Введите новую подстроку");
         changeString = scanner.nextLine();
 
-        newString = string.replace(findString, changeString);
-
-        System.out.println(newString);
+        System.out.println(string.replace(findString, changeString));
 
     }
 }
