@@ -26,7 +26,7 @@ public class Task7 {
 
                     //System.out.println(x + ":" + y);
 
-                    System.out.println(String.format("%02d:%02d", x, y));
+                   // System.out.println(String.format("%02d:%02d", x, y));
 
                     count++;
                 }
@@ -35,7 +35,7 @@ public class Task7 {
 
         }
 
-        System.out.println("------------------");
+        //System.out.println("------------------");
         System.out.println(count);
 
     }
