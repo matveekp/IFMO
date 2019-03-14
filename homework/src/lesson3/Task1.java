@@ -17,6 +17,7 @@ public class Task1 {
             System.out.print(array[i] + " ");
         }
 
+
         System.out.println();
 
         for (int i : array) {
