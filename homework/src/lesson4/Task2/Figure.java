@@ -7,9 +7,6 @@ package lesson4.Task2;
 
 public abstract class Figure {
 
-    private int x;
-    private int y;
-
 
     public abstract double getArea();
     public abstract double getPerimeter();
