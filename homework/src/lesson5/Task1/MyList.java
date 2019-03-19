@@ -2,38 +2,35 @@ package lesson5.Task1;
 
 import java.util.Arrays;
 
-public class MyLinkedList {
+public class MyList implements Stack, Queue, List  {
 
     private Node head;
     private int size;
 
-    public void add(int value) {
+
+    @Override
+    public void add(Object value) {
 
         if (head == null) {
             this.head = new Node(value);
         }
 
         else {
-
             Node temp = head;
-
             while (temp.getNext()!= null) {
                 temp = temp.getNext();
             }
-
             temp.setNext( new Node(value));
-
         }
-
         size++;
 
     }
 
-    public int get(int index) {
+    @Override
+    public Object get(int index) {
 
         int currentIndex = 0;
         Node temp = head;
-
 
         while (temp != null) {
             if (currentIndex == index) {
@@ -43,23 +40,18 @@ public class MyLinkedList {
                 temp = temp.getNext();
                 currentIndex++;
             }
-
         }
-
         throw new IllegalArgumentException();
-
     }
 
-
+    @Override
     public void remove(int index) {
 
         int currentIndex = 0;
         Node temp = head;
 
-
         while (temp != null) {
             if (currentIndex + 1 == index) {
-
                 temp.setNext(temp.getNext().getNext());
                 size--;
                 return;
@@ -68,12 +60,66 @@ public class MyLinkedList {
                 temp = temp.getNext();
                 currentIndex++;
             }
+        }
+    }
 
+
+    @Override
+    public void enqueue(Object value) {
+
+        if (head == null) {
+            this.head = new Node(value);
+        }
+        else {
+            Node temp = head;
+            while (temp.getNext()!= null) {
+                temp = temp.getNext();
+            }
+            temp.setNext( new Node(value));
+        }
+        size++;
+    }
+
+    @Override
+    public Object dequeu() {
+
+        Node temp = head;
+
+        head = temp.getNext();
+        size--;
+
+        return temp.getValue();
+    }
+
+    @Override
+    public void push(Object value) {
+
+        if (head == null) {
+            this.head = new Node(value);
+        }
+        else {
+            Node temp = head;
+            while (temp.getNext()!= null) {
+                temp = temp.getNext();
+            }
+            temp.setNext( new Node(value));
+        }
+        size++;
+    }
+
+    @Override
+    public Object pop() {
+
+        Node temp = head;
+
+        while (temp.getNext().getNext() != null) {
+            temp = temp.getNext();
         }
 
+        temp.setNext(null);
+        size--;
 
-
-
+        return temp.getValue();
     }
 
 
@@ -82,8 +128,7 @@ public class MyLinkedList {
     @Override
     public String toString() {
 
-
-        int[] result = new int[size];
+        Object[] result = new Object[size];
 
         int idx = 0;
         Node temp = head;
@@ -97,21 +142,20 @@ public class MyLinkedList {
         return Arrays.toString(result);
     }
 
-
     private static class Node {
 
-        private int value;
+        private Object value;
         private Node next;
 
-        public Node(int value) {
+        public Node(Object value) {
             this.value = value;
         }
 
-        public int getValue() {
+        public Object getValue() {
             return value;
         }
 
-        public void setValue(int value) {
+        public void setValue(Object value) {
             this.value = value;
         }
 
@@ -122,8 +166,6 @@ public class MyLinkedList {
         public void setNext(Node next) {
             this.next = next;
         }
-
-
     }
 
 }
