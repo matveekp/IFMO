@@ -83,6 +83,9 @@ public class MyList implements Stack, Queue, List  {
     @Override
     public Object dequeu() {
 
+        if (head == null)
+            throw new IndexOutOfBoundsException();
+
         Node temp = head;
 
         head = temp.getNext();
@@ -109,6 +112,9 @@ public class MyList implements Stack, Queue, List  {
 
     @Override
     public Object pop() {
+
+        if (head == null)
+            throw new IndexOutOfBoundsException();
 
         Node temp = head;
 
