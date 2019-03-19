@@ -12,6 +12,4 @@ public class Calculator {
         return action.execute(x, y);
     }
 
-
-
-}
+    }
