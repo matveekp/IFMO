@@ -12,6 +12,7 @@ public class Hospital {
 
     Scanner scanner = new Scanner(System.in);
     String enterLogin;
+    String enterCommand;
     private static int patientCount = 0;
 
     MainDoctor mainDoctor = new MainDoctor("Ivanov I.I.", "ivanov");
@@ -101,18 +102,21 @@ public class Hospital {
 
         }
 
-        else if (showAllDoctors().contains(enterLogin)) {
-            System.out.println("Выполнен вход в систему. " + "Ваша роль в системе: Врач");
-///?????? проверка есть ли врач
-
-            // команды
-            return null;
-        }
 
         else {
+            //проверка на доктора
+            for (int i = 0; i < doctorList.size(); i++) {
+                if (enterLogin.equals(doctorList.get(i).getLogin())) {
+                    System.out.println("Выполнен вход в систему. " + "Ваша роль в системе: Врач");
+                    return doctorList.get(i);
+                }
+            }
+
+            //проверка на пациента
+
             for (int i = 0; i < patientsList.size(); i++) {
 
-                if (enterLogin.equals(patientsList.get(i))) {
+                if (enterLogin.equals(patientsList.get(i).getLogin())) {
                     System.out.println("Вы вошли как пациент. Ваше имя: " + patientsList.get(i).getName());
                     return patientsList.get(i);
 
@@ -120,16 +124,21 @@ public class Hospital {
 
                     System.out.println("Вы не найдены в системе. Введите Ваше имя");
                     String name = scanner.next();
-                    patientCount++;
-                    String login = "patient" + patientCount;
-                    Patient patient = new Patient(name, login);
 
-                    addPatient(patient);
-                    System.out.println("Запись добавлена.");
-                    System.out.println("Ваше имя в системе: " + patient.getName());
-                    System.out.println("Ваш логин: " + patient.getLogin());
+                    if (!name.equalsIgnoreCase("exit")) {
+                        patientCount++;
+                        String login = "patient" + patientCount;
+                        Patient patient = new Patient(name, login);
 
-                    return patient;
+                        addPatient(patient);
+                        System.out.println("Запись добавлена.");
+                        System.out.println("Ваше имя в системе: " + patient.getName());
+                        System.out.println("Ваш логин: " + patient.getLogin());
+
+                        return patient;
+                    }
+
+                    return null;
 
                 }
 
