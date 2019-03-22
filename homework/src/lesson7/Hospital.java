@@ -24,13 +24,13 @@ public class Hospital {
 
     Administrator administrator = new Administrator("Kazakov V.A.", "kazakov");
 
-    public static int getPatientCount() {
-        return patientCount;
-    }
+//    public static int getPatientCount() {
+//        return patientCount;
+//    }
 
-    public static void addPatientCount() {
-        Hospital.patientCount++;
-    }
+//    public static void addPatientCount() {
+//        Hospital.patientCount++;
+//    }
 
     public void addDoctor(Doctor doctor) {
         doctorList.add(doctor);
@@ -63,9 +63,20 @@ public class Hospital {
         addPatient(patient1);
 
         while (true) {
-            if (checkLogin() == null)
+            if (checkLogin() instanceof MainDoctor)
+                //
                 return;
-            else if (checkLogin().getClass().isInstance(MainDoctor))
+
+            else if (checkLogin() instanceof Doctor)
+                //
+                return;
+
+            else if (checkLogin() instanceof Patient)
+                //
+                return;
+
+            else return;
+
         }
 
     }
@@ -76,30 +87,35 @@ public class Hospital {
 
         System.out.println("Введите логин");
 
-        enterLogin = scanner.nextLine();
+        enterLogin = scanner.next();
 
         if (enterLogin.equalsIgnoreCase("exit"))
             return null;
 
-        else if (enterLogin.equals(mainDoctor.getLogin())) {
+        else if (enterLogin.equalsIgnoreCase(mainDoctor.getLogin())) {
 
             System.out.println("Выполнен вход в систему. Ваше имя - " + mainDoctor.getName() + "Ваша роль в системе: Главный врач");
 
             // команды
             return mainDoctor;
 
-        } else if (showAllDoctors().contains(enterLogin)) {
+        }
+
+        else if (showAllDoctors().contains(enterLogin)) {
             System.out.println("Выполнен вход в систему. " + "Ваша роль в системе: Врач");
 ///?????? проверка есть ли врач
 
             // команды
-        } else {
+            return null;
+        }
+
+        else {
             for (int i = 0; i < patientsList.size(); i++) {
 
                 if (enterLogin.equals(patientsList.get(i))) {
                     System.out.println("Вы вошли как пациент. Ваше имя: " + patientsList.get(i).getName());
+                    return patientsList.get(i);
 
-                    break;
                 } else {
 
                     System.out.println("Вы не найдены в системе. Введите Ваше имя");
@@ -121,10 +137,12 @@ public class Hospital {
 
         }
 
-
+        return null;
     }
-
 }
+
+
+
 
 
 
