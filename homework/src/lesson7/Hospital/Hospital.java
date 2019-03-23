@@ -15,9 +15,9 @@ public class Hospital {
     private static int patientCount = 3;
 
     MainDoctor mainDoctor = new MainDoctor("Ivanov I.I.", "ivanov");
-    Doctor doctor1 = new Doctor(1, "Petrov P.P.", "petrov", "Surgeon");
-    Doctor doctor2 = new Doctor(2, "Sidorov V.V.", "sidorov", "Oculist");
-    Doctor doctor3 = new Doctor(3, "Nikitin N.N.", "nikitin", "Dentist");
+    Doctor doctor1 = new Doctor(0, "Petrov P.P.", "petrov", "Surgeon");
+    Doctor doctor2 = new Doctor(1, "Sidorov V.V.", "sidorov", "Oculist");
+    Doctor doctor3 = new Doctor(2, "Nikitin N.N.", "nikitin", "Dentist");
 
     Patient patient1 = new Patient("Bobrov V.A.", "patient1");
     Patient patient2 = new Patient("Sokolov A.A.", "patient2");
@@ -44,11 +44,19 @@ public class Hospital {
         doctorList.add(doctor1);
         doctorList.add(doctor2);
         doctorList.add(doctor3);
+
         patientsList.add(patient1);
         patientsList.add(patient2);
         patientsList.add(patient3);
 
+        doctor1.addPatientsToDoctor(patient2);
+        doctor2.addPatientsToDoctor(patient3);
+
         doctor2.addPatientsToDoctor(patient1);
+        doctor2.addPatientsToDoctor(patient2);
+
+        doctor3.addPatientsToDoctor(patient1);
+        doctor3.addPatientsToDoctor(patient3);
     }
 
 
@@ -80,15 +88,19 @@ public class Hospital {
                         System.out.println("Укажите ID врача, записи к которому Вы хотите посмотреть?");
                         int choise2 = scanner.nextInt();
                         for (int i = 0; i < doctorList.size(); i++) {
-
-                            if (choise2 == doctorList.get(i).getId()){
-                                System.out.println(doctorList.get(i).getDoctorPatientList());
+                            if (choise2 == doctorList.get(i).getId()) {
+                                System.out.println(Arrays.toString(doctorList.get(i).getDoctorPatientList().toArray()));
+                            } else {
+                                System.out.println("Записи не найдены");
+                                break;
                             }
-                            else System.out.println("Вы указали неверный ID");
+
+                            System.out.println("----------------------------");
                             System.out.println("Выход из системы.");
                             System.out.println("----------------------------");
+
+                            break;
                         }
-                        break;
                 }
             } else if (currentUser instanceof Doctor) {
                 System.out.println("----------------------------");
@@ -99,10 +111,16 @@ public class Hospital {
                 switch (choise) {
                     case 1:
                         for (int i = 0; i < doctorList.size(); i++) {
-                            System.out.println(i+" ."+doctorList.get(i).getDoctorPatientList());
+                            if (choise == doctorList.get(i).getId())
+                            System.out.println(i + " ." + Arrays.toString(doctorList.get(i).getDoctorPatientList().toArray()));
                         }
+                            System.out.println("----------------------------");
+                            System.out.println("Выход из системы.");
+                            System.out.println("----------------------------");
+
                         break;
                     case 2:
+                        System.out.println("----------------------------");
                         System.out.println("Выход из системы.");
                         System.out.println("----------------------------");
                         break;
@@ -128,17 +146,24 @@ public class Hospital {
                             }
                         }
                         System.out.println("Вы успешно записались к врачу!");
+                        System.out.println("----------------------------");
                         System.out.println("Выход из системы.");
                         System.out.println("----------------------------");
                         break;
                     case 2:
+                        System.out.println("----------------------------");
                         System.out.println("Выход из системы.");
                         System.out.println("----------------------------");
                         break;
 
                 }
 
-            } else return;
+            } else {
+                System.out.println("----------------------------");
+                System.out.println("Работа программы завершена");
+                System.out.println("----------------------------");
+                return;
+            }
 
         }
 

@@ -55,15 +55,12 @@ public class Doctor  extends User{
         return doctorPatientsList;
     }
 
+
+
     public void addPatientsToDoctor(Patient o)
     {
         doctorPatientsList.add(o);
+
     }
 
-    @Override
-    public String toString() {
-        return "Doctor{" +
-                "doctorPatientsList=" + doctorPatientsList +
-                '}';
-    }
 }
