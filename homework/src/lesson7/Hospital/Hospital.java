@@ -15,13 +15,13 @@ public class Hospital {
     private static int patientCount = 1;
 
     MainDoctor mainDoctor = new MainDoctor("Ivanov I.I.", "ivanov");
-    Doctor doctor1 = new Doctor("Petrov P.P.", "petrov", "Surgeon");
-    Doctor doctor2 = new Doctor("Sidorov V.V.", "sidorov", "Oculist");
-    Doctor doctor3 = new Doctor("Nikitin N.N.", "nikitin", "Dentist");
+    Doctor doctor1 = new Doctor(1, "Petrov P.P.", "petrov", "Surgeon");
+    Doctor doctor2 = new Doctor(2, "Sidorov V.V.", "sidorov", "Oculist");
+    Doctor doctor3 = new Doctor(3, "Nikitin N.N.", "nikitin", "Dentist");
 
     Patient patient1 = new Patient("Bobrov V.A.", "patient1");
 
-    Administrator administrator = new Administrator("MainAdminName", "admin");
+    Administrator administrator = new Administrator();
 
     User currentUser;
 
@@ -64,6 +64,24 @@ public class Hospital {
                         }
                         break;
                     case 2:
+                        System.out.println("Список врачей");
+                        for (int i = 1; i < doctorList.size()-1; i++) {
+                            System.out.println(i+". "+ doctorList.get(i).getName());
+                        }
+
+                        System.out.println("----------------------------");
+                        System.out.println("Записи к какому врачу Вы хотите посмотреть?");
+
+                        int choise2 = scanner.nextInt();
+
+                        for (int i = 1; i < doctorList.size()-1; i++) {
+                            if (choise2 == doctorList.get(i).getId()){
+                                System.out.println(administrator.showPatientsToDoctor(doctorList.get(i)));
+                            }
+                        }
+
+
+
                         break;
 
 
@@ -97,22 +115,17 @@ public class Hospital {
                         }
 
                         System.out.println("----------------------------");
-                        System.out.println("К каому врачу Вы хотите записаться?");
+                        System.out.println("К какому врачу Вы хотите записаться?");
 
                         int choise2 = scanner.nextInt();
 
-                        switch (choise2){
-                            case 1:
-
-                                break;
-                            case 2:
-
-                                break;
-                            case 3:
-
-                                break;
-
+                        for (int i = 1; i < doctorList.size()-1; i++) {
+                            if (choise2 == doctorList.get(i).getId()){
+                                administrator.addPatientToDoctor((Patient) currentUser);
+                            }
                         }
+
+
 
 
                         break;

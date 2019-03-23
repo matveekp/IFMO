@@ -8,16 +8,24 @@ public class Doctor  extends User{
     private String name;
     private String login;
     private String specialisation;
+    private int id;
 
     List<Patient> doctorPatientsList = new ArrayList<>();
 
-    public Doctor(String name, String login, String specialisation) {
+    public Doctor(int id, String name, String login, String specialisation) {
+        this.id = id;
         this.name = name;
         this.login = login;
         this.specialisation=specialisation;
     }
 
-     public String getName() {
+    public int getId() {
+        return id;
+    }
+
+
+
+    public String getName() {
         return name;
     }
 
@@ -52,10 +60,5 @@ public class Doctor  extends User{
         doctorPatientsList.add(o);
     }
 
-    @Override
-    public String toString() {
-        return "Doctor{" +
-                "doctorPatientsList=" + doctorPatientsList +
-                '}';
-    }
+
 }

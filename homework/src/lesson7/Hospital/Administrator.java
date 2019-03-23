@@ -1,33 +1,23 @@
 package lesson7.Hospital;
 
-public class Administrator extends User{
+import java.util.List;
 
-    private String name;
-    private String login;
+public class Administrator extends User{
 
     Doctor doctor;
     Patient patient;
 
-    public Administrator(String name, String login) {
-        this.name = name;
-        this.login = login;
+
+    public void addPatientToDoctor(Patient patient){
+       doctor.addPatientsToDoctor(patient);
     }
 
-    public String getName() {
-        return name;
+    public List<Patient> showPatientsToDoctor(Doctor doctor) {
+      return doctor.getDoctorPatientList(doctor);
+
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
 
 
 
