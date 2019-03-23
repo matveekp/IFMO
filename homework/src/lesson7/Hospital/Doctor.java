@@ -24,43 +24,24 @@ public class Doctor  extends User{
         return id;
     }
 
-
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getLogin() {
         return login;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
     public String getSpecialisation() {
         return specialisation;
     }
 
-    public void setSpecialisation(String specialisation) {
-        this.specialisation = specialisation;
-    }
-
-    public List<Patient> getDoctorPatientList()
-    {
+    public List<Patient> getDoctorPatientList(){
         return doctorPatientsList;
     }
 
-
-
-    public void addPatientsToDoctor(Patient o)
-    {
+    public void addPatientsToDoctor(Patient o){
         doctorPatientsList.add(o);
-
     }
 
 }
