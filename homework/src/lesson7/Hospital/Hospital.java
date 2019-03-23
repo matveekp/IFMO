@@ -12,7 +12,7 @@ public class Hospital {
     Scanner scanner = new Scanner(System.in);
     String enterLogin;
     String enterCommand;
-    private static int patientCount = 1;
+    private static int patientCount = 3;
 
     MainDoctor mainDoctor = new MainDoctor("Ivanov I.I.", "ivanov");
     Doctor doctor1 = new Doctor(1, "Petrov P.P.", "petrov", "Surgeon");
@@ -20,6 +20,8 @@ public class Hospital {
     Doctor doctor3 = new Doctor(3, "Nikitin N.N.", "nikitin", "Dentist");
 
     Patient patient1 = new Patient("Bobrov V.A.", "patient1");
+    Patient patient2 = new Patient("Sokolov A.A.", "patient2");
+    Patient patient3 = new Patient("Nikolskiy V.G.", "patient3");
 
     Administrator administrator = new Administrator();
 
@@ -43,6 +45,10 @@ public class Hospital {
         doctorList.add(doctor2);
         doctorList.add(doctor3);
         patientsList.add(patient1);
+        patientsList.add(patient2);
+        patientsList.add(patient3);
+
+        doctor2.addPatientsToDoctor(patient1);
     }
 
 
@@ -58,33 +64,31 @@ public class Hospital {
                 System.out.println("2. Посмотреть запись к конкретному врачу");
                 int choise = scanner.nextInt();
                 switch (choise) {
+
                     case 1:
-                        for (Patient patient : patientsList) {
-                            System.out.println(patient);
+                        for (int i = 0; i < patientsList.size(); i++) {
+                            System.out.println(i+". " + patientsList.get(i).getName());
                         }
                         break;
+
                     case 2:
                         System.out.println("Список врачей");
-                        for (int i = 1; i < doctorList.size()-1; i++) {
+                        for (int i = 0; i < doctorList.size(); i++) {
                             System.out.println(i+". "+ doctorList.get(i).getName());
                         }
-
                         System.out.println("----------------------------");
-                        System.out.println("Записи к какому врачу Вы хотите посмотреть?");
-
+                        System.out.println("Укажите ID врача, записи к которому Вы хотите посмотреть?");
                         int choise2 = scanner.nextInt();
+                        for (int i = 0; i < doctorList.size(); i++) {
 
-                        for (int i = 1; i < doctorList.size()-1; i++) {
                             if (choise2 == doctorList.get(i).getId()){
-                                System.out.println(administrator.showPatientsToDoctor(doctorList.get(i)));
+                                System.out.println(doctorList.get(i).getDoctorPatientList());
                             }
+                            else System.out.println("Вы указали неверный ID");
+                            System.out.println("Выход из системы.");
+                            System.out.println("----------------------------");
                         }
-
-
-
                         break;
-
-
                 }
             } else if (currentUser instanceof Doctor) {
                 System.out.println("----------------------------");
@@ -94,11 +98,13 @@ public class Hospital {
                 int choise = scanner.nextInt();
                 switch (choise) {
                     case 1:
-                        for (Doctor doctor : doctorList) {
-                            System.out.println(doctor.getDoctorPatientList((Doctor) currentUser));
+                        for (int i = 0; i < doctorList.size(); i++) {
+                            System.out.println(i+" ."+doctorList.get(i).getDoctorPatientList());
                         }
                         break;
                     case 2:
+                        System.out.println("Выход из системы.");
+                        System.out.println("----------------------------");
                         break;
                 }
             } else if (currentUser instanceof Patient) {
@@ -110,26 +116,24 @@ public class Hospital {
                 switch (choise) {
                     case 1:
                         System.out.println("Список врачей");
-                        for (int i = 1; i < doctorList.size()-1; i++) {
+                        for (int i = 0; i < doctorList.size(); i++) {
                             System.out.println(i+". "+ doctorList.get(i).getName());
                         }
-
                         System.out.println("----------------------------");
                         System.out.println("К какому врачу Вы хотите записаться?");
-
                         int choise2 = scanner.nextInt();
-
-                        for (int i = 1; i < doctorList.size()-1; i++) {
+                        for (int i = 0; i < doctorList.size(); i++) {
                             if (choise2 == doctorList.get(i).getId()){
-                                administrator.addPatientToDoctor((Patient) currentUser);
+                                doctorList.get(i).addPatientsToDoctor((Patient) currentUser);
                             }
                         }
-
-
-
-
+                        System.out.println("Вы успешно записались к врачу!");
+                        System.out.println("Выход из системы.");
+                        System.out.println("----------------------------");
                         break;
                     case 2:
+                        System.out.println("Выход из системы.");
+                        System.out.println("----------------------------");
                         break;
 
                 }

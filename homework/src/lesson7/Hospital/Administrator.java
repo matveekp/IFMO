@@ -12,10 +12,10 @@ public class Administrator extends User{
        doctor.addPatientsToDoctor(patient);
     }
 
-    public List<Patient> showPatientsToDoctor(Doctor doctor) {
-      return doctor.getDoctorPatientList(doctor);
-
-    }
+//    public List<Patient> showPatientsToDoctor(Doctor doctor) {
+//      return doctor.getDoctorPatientList(doctor);
+//
+//    }
 
 
 

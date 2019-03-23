@@ -1,6 +1,7 @@
 package lesson7.Hospital;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Doctor  extends User{
@@ -49,9 +50,8 @@ public class Doctor  extends User{
         this.specialisation = specialisation;
     }
 
-    public List<Patient> getDoctorPatientList(Doctor doctor)
+    public List<Patient> getDoctorPatientList()
     {
-
         return doctorPatientsList;
     }
 
@@ -60,5 +60,10 @@ public class Doctor  extends User{
         doctorPatientsList.add(o);
     }
 
-
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "doctorPatientsList=" + doctorPatientsList +
+                '}';
+    }
 }
