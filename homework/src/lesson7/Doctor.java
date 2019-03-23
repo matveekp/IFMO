@@ -15,20 +15,29 @@ public class Doctor  extends User{
         this.login = login;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
 
+    @Override
     public String getLogin() {
         return login;
     }
 
+    @Override
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    @Override
+    public void getCommands() {
+
     }
 
     public List<Patient> getDoctorPatientList()

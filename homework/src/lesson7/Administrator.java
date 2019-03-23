@@ -1,28 +1,21 @@
 package lesson7;
 
-public class Administrator  extends User{
+public class Administrator {
 
-    private String name;
-    private String login;
 
-    public Administrator(String name, String login) {
-        this.name = name;
-        this.login = login;
+    private static Administrator ourInstance = new Administrator();
+
+    public static Administrator getInstance() {
+       return ourInstance;
     }
 
-    public String getName() {
-        return name;
+    private Administrator() {
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void set(){
+
     }
 
-    public String getLogin() {
-        return login;
-    }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
+
 }

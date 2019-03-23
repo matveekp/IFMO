@@ -13,25 +13,20 @@ public class Hospital {
     Scanner scanner = new Scanner(System.in);
     String enterLogin;
     String enterCommand;
-    private static int patientCount = 0;
+    private static int patientCount = 1;
 
     MainDoctor mainDoctor = new MainDoctor("Ivanov I.I.", "ivanov");
     Doctor doctor1 = new Doctor("Petrov P.P.", "petrov");
     Doctor doctor2 = new Doctor("Sidorov V.V.", "sidorov");
     Doctor doctor3 = new Doctor("Nikitin N.N.", "nikitin");
 
-    Patient patient1 = new Patient("Bobrov V.A.", "bobrob");
+    Patient patient1 = new Patient("Bobrov V.A.", "bobrov");
+
+    Administrator administrator = Administrator.getInstance();
+
+    User currentUser;
 
 
-    Administrator administrator = new Administrator("Kazakov V.A.", "kazakov");
-
-//    public static int getPatientCount() {
-//        return patientCount;
-//    }
-
-//    public static void addPatientCount() {
-//        Hospital.patientCount++;
-//    }
 
     public void addDoctor(Doctor doctor) {
         doctorList.add(doctor);
@@ -56,17 +51,27 @@ public class Hospital {
 
     }
 
-    public void open() {
-
+    public void init() {
         addDoctor(doctor1);
         addDoctor(doctor2);
         addDoctor(doctor3);
         addPatient(patient1);
+    }
+
+
+    public void open() {
+        init();
 
         while (true) {
-            if (checkLogin() instanceof MainDoctor)
+            if (checkLogin() instanceof MainDoctor) {
                 //
-                return;
+
+               currentUser = checkLogin();
+                System.out.println(checkLogin());
+                //System.out.println(currentUser.getCommands());
+
+               return;
+            }
 
             else if (checkLogin() instanceof Doctor)
                 //
@@ -85,23 +90,16 @@ public class Hospital {
 
     public User checkLogin() {
 
-
         System.out.println("Введите логин");
-
         enterLogin = scanner.next();
 
         if (enterLogin.equalsIgnoreCase("exit"))
             return null;
 
         else if (enterLogin.equalsIgnoreCase(mainDoctor.getLogin())) {
-
             System.out.println("Выполнен вход в систему. Ваше имя - " + mainDoctor.getName() + "Ваша роль в системе: Главный врач");
-
-            // команды
             return mainDoctor;
-
         }
-
 
         else {
             //проверка на доктора
@@ -111,34 +109,28 @@ public class Hospital {
                     return doctorList.get(i);
                 }
             }
-
             //проверка на пациента
-
             for (int i = 0; i < patientsList.size(); i++) {
-
                 if (enterLogin.equals(patientsList.get(i).getLogin())) {
                     System.out.println("Вы вошли как пациент. Ваше имя: " + patientsList.get(i).getName());
                     return patientsList.get(i);
-
-                } else {
-
+                }
+            }
+            //если не нашли пациента
                     System.out.println("Вы не найдены в системе. Введите Ваше имя");
                     String name = scanner.next();
-
                     if (!name.equalsIgnoreCase("exit")) {
                         patientCount++;
                         String login = "patient" + patientCount;
                         Patient patient = new Patient(name, login);
-
-                        addPatient(patient);
+                        patientsList.add(patient);
                         System.out.println("Запись добавлена.");
                         System.out.println("Ваше имя в системе: " + patient.getName());
                         System.out.println("Ваш логин: " + patient.getLogin());
-
                         return patient;
                     }
+                    else return null;
 
-                    return null;
 
                 }
 
@@ -146,9 +138,9 @@ public class Hospital {
 
         }
 
-        return null;
-    }
-}
+
+
+
 
 
 
