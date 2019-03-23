@@ -1,9 +1,17 @@
-package lesson7;
+package lesson7.Hospital;
 
-public abstract class User {
+public class Administrator extends User{
 
     private String name;
     private String login;
+
+    Doctor doctor;
+    Patient patient;
+
+    public Administrator(String name, String login) {
+        this.name = name;
+        this.login = login;
+    }
 
     public String getName() {
         return name;
@@ -21,7 +29,7 @@ public abstract class User {
         this.login = login;
     }
 
-    public abstract void getCommands();
+
 
 
 }

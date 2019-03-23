@@ -1,4 +1,4 @@
-package lesson7;
+package lesson7.Hospital;
 
 
 import java.util.*;
@@ -8,7 +8,6 @@ public class Hospital {
 
     private List<Doctor> doctorList = new ArrayList<>();
     private List<Patient> patientsList = new ArrayList<>();
-
 
     Scanner scanner = new Scanner(System.in);
     String enterLogin;
@@ -22,7 +21,7 @@ public class Hospital {
 
     Patient patient1 = new Patient("Bobrov V.A.", "bobrov");
 
-    Administrator administrator = Administrator.getInstance();
+    Administrator administrator = new Administrator("MainAdminName", "admin");
 
     User currentUser;
 
@@ -63,24 +62,29 @@ public class Hospital {
         init();
 
         while (true) {
-            if (checkLogin() instanceof MainDoctor) {
-                //
+            currentUser = checkLogin();
+            if (currentUser instanceof MainDoctor) {
 
-               currentUser = checkLogin();
-                System.out.println(checkLogin());
-                //System.out.println(currentUser.getCommands());
+
+
+
+
+
 
                return;
             }
 
-            else if (checkLogin() instanceof Doctor)
-                //
-                return;
+            else if (currentUser instanceof Doctor){
+                ((Doctor) currentUser).getDoctorPatientList();
 
-            else if (checkLogin() instanceof Patient)
-                //
                 return;
+            }
 
+            else if (currentUser instanceof Patient){
+
+
+                return;
+            }
             else return;
 
         }
@@ -97,7 +101,8 @@ public class Hospital {
             return null;
 
         else if (enterLogin.equalsIgnoreCase(mainDoctor.getLogin())) {
-            System.out.println("Выполнен вход в систему. Ваше имя - " + mainDoctor.getName() + "Ваша роль в системе: Главный врач");
+            System.out.println("Выполнен вход в систему. Ваше имя - " + mainDoctor.getName());
+            System.out.println("Ваша роль в системе: Главный врач");
             return mainDoctor;
         }
 
@@ -105,7 +110,8 @@ public class Hospital {
             //проверка на доктора
             for (int i = 0; i < doctorList.size(); i++) {
                 if (enterLogin.equals(doctorList.get(i).getLogin())) {
-                    System.out.println("Выполнен вход в систему. " + "Ваша роль в системе: Врач");
+                    System.out.println("Выполнен вход в систему. Ваше имя - " + doctorList.get(i).getName());
+                    System.out.println("Ваша роль в системе: Врач");
                     return doctorList.get(i);
                 }
             }

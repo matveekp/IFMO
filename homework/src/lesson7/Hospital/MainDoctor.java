@@ -1,7 +1,4 @@
-package lesson7;
-
-import java.util.ArrayList;
-import java.util.List;
+package lesson7.Hospital;
 
 public class MainDoctor extends User{
 
@@ -13,28 +10,22 @@ public class MainDoctor extends User{
         this.login = login;
     }
 
-    @Override
     public String getName() {
         return name;
     }
 
-    @Override
     public void setName(String name) {
         this.name = name;
     }
 
-    @Override
     public String getLogin() {
         return login;
     }
 
-    @Override
     public void setLogin(String login) {
         this.login = login;
     }
 
-    @Override
-    public void getCommands() {
 
-    }
+
 }

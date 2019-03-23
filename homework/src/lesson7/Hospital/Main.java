@@ -1,4 +1,4 @@
-package lesson7;
+package lesson7.Hospital;
 
 public class Main {
 
