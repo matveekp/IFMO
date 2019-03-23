@@ -1,8 +1,6 @@
 package lesson7.Hospital;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Doctor  extends User{
 
@@ -12,6 +10,9 @@ public class Doctor  extends User{
     private int id;
 
     List<Patient> doctorPatientsList = new ArrayList<>();
+
+    //тест. время записи пока не реализовано
+    Map<Date, Patient> doctorTimePatientMap = new HashMap<>();
 
     public Doctor(int id, String name, String login, String specialisation) {
         this.id = id;
@@ -40,8 +41,15 @@ public class Doctor  extends User{
         return doctorPatientsList;
     }
 
-    public void addPatientsToDoctor(Patient o){
-        doctorPatientsList.add(o);
+    public void addPatientsToDoctor(Patient patient){
+        doctorPatientsList.add(patient);
     }
 
+    public Map<Date, Patient> getDoctorTimePatientMap() {
+        return doctorTimePatientMap;
+    }
+
+    public void addDoctorTimePatientMap(Date date, Patient patient) {
+        getDoctorTimePatientMap().put(date, patient);
+    }
 }
