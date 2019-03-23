@@ -7,12 +7,14 @@ public class Doctor  extends User{
 
     private String name;
     private String login;
+    private String specialisation;
 
     List<Patient> doctorPatientsList = new ArrayList<>();
 
-    public Doctor(String name, String login) {
+    public Doctor(String name, String login, String specialisation) {
         this.name = name;
         this.login = login;
+        this.specialisation=specialisation;
     }
 
      public String getName() {
@@ -31,14 +33,29 @@ public class Doctor  extends User{
         this.login = login;
     }
 
+    public String getSpecialisation() {
+        return specialisation;
+    }
 
-    public List<Patient> getDoctorPatientList()
+    public void setSpecialisation(String specialisation) {
+        this.specialisation = specialisation;
+    }
+
+    public List<Patient> getDoctorPatientList(Doctor doctor)
     {
+
         return doctorPatientsList;
     }
 
     public void addPatientsToDoctor(Patient o)
     {
         doctorPatientsList.add(o);
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "doctorPatientsList=" + doctorPatientsList +
+                '}';
     }
 }
