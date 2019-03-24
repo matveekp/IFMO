@@ -16,7 +16,7 @@ public class Hospital {
 
     User currentUser;
 
-    SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH);
 
     Administrator administrator;
 
@@ -41,14 +41,14 @@ public class Hospital {
         patientsList.add(patient2);
         patientsList.add(patient3);
 
-        doctor1.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-09 10:40").getTime()),patient1);
+        doctor1.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-04-05 10:00").getTime()),patient1);
 
-        doctor2.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-05 11:40").getTime()),patient2);
-        doctor2.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-05 12:40").getTime()),patient3);
+        doctor2.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-04-05 11:00").getTime()),patient2);
+        doctor2.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-04-05 12:00").getTime()),patient3);
 
-        doctor3.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-08 15:40").getTime()),patient1);
-        doctor3.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-08 12:40").getTime()),patient2);
-        doctor3.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-08 11:40").getTime()),patient3);
+        doctor3.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-04-05 12:00").getTime()),patient1);
+        doctor3.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-04-05 13:00").getTime()),patient2);
+        doctor3.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-04-05 14:00").getTime()),patient3);
 
     }
 
@@ -87,7 +87,7 @@ public class Hospital {
                         System.out.println("----------------------------");
                         System.out.println("Выход из системы.");
                         System.out.println("----------------------------");
-
+                        break;
 }
 
 
@@ -107,6 +107,7 @@ public class Hospital {
                 System.out.println("----------------------------");
                 System.out.println("Выход из системы.");
                 System.out.println("----------------------------");
+                break;
 
             } else if (currentUser instanceof Patient) {
                 System.out.println("----------------------------");
@@ -127,18 +128,29 @@ public class Hospital {
                         int choise2 = scanner.nextInt();
                         for (int i = 0; i < doctorList.size(); i++) {
                             if (choise2 == doctorList.get(i).getId()) {
-                                System.out.println("Прием пациентов осуществляется с 08:00 до 20:00");
-                                System.out.println("Введите желаемую дату и время визита в формате год-месяц-число часы:минуты");
-                                String date = scanner.next();
+                                System.out.println("Запись осуществляется на текущий год - 2019");
 
-                                try{
-//                                doctorList.get(i).addDoctorTimePatientMap(new Date(sdfDate.parse("2019-07-08 15:40").getTime()), (Patient) currentUser);}
-                                    doctorList.get(i).addDoctorTimePatientMap(new Date(sdfDate.parse(date).getTime()), (Patient) currentUser);}
-                                catch (ParseException e) {
-                                    System.out.println("Вы ввели дату в неправильном формате.");
-                                    return;
-                                }
-                                System.out.println("Вы успешно записались к врачу!");
+
+                                System.out.println("Введите месяц");
+                                int month = scanner.nextInt();
+                                System.out.println("Введите число");
+                                int day = scanner.nextInt();
+
+                                System.out.println("Прием пациентов осуществляется раз в час с 08:00 до 20:00");
+                                System.out.println("В какое время вы хотите попасть на прием");
+                                int hour = scanner.nextInt();
+
+
+                                Calendar calendar = new GregorianCalendar(2019, month , day, hour, 00);
+                                Date date = calendar.getTime();
+                                System.out.println(date);
+
+                               if (!doctorList.get(i).getDoctorTimePatientMap().containsKey(date)) {
+                                   doctorList.get(i).addDoctorTimePatientMap(date, (Patient) currentUser);
+//
+                                   System.out.println("Вы успешно записались к врачу!");
+                               }
+                               else System.out.println("Запись на это время уже существует.");
 
 
 
@@ -170,7 +182,7 @@ public class Hospital {
     public User checkLogin() {
 
         System.out.println("Введите логин");
-        enterLogin = scanner.nextLine();
+        enterLogin = scanner.next();
 
         if (enterLogin.equalsIgnoreCase("exit"))
             return null;
