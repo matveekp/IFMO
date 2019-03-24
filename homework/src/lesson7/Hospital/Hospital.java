@@ -8,17 +8,17 @@ import java.util.*;
 public class Hospital {
 
     private static int patientCount = 3;
-    List<Doctor> doctorList = new ArrayList<>();
-    List<Patient> patientsList = new ArrayList<>();
+    private List<Doctor> doctorList = new ArrayList<>();
+    private List<Patient> patientsList = new ArrayList<>();
 
     Scanner scanner = new Scanner(System.in);
     String enterLogin;
 
     User currentUser;
 
-    SimpleDateFormat sdfDate = new SimpleDateFormat("YYYY-MM-DD HH:mm");
+    SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
-    Administrator administrator = new Administrator();
+    Administrator administrator;
 
     MainDoctor mainDoctor = new MainDoctor("Ivanov I.I.", "ivanov");
     Doctor doctor1 = new Doctor(0, "Petrov P.P.", "petrov", "Surgeon");
@@ -28,6 +28,7 @@ public class Hospital {
     Patient patient1 = new Patient("Bobrov V.A.", "patient1");
     Patient patient2 = new Patient("Sokolov A.A.", "patient2");
     Patient patient3 = new Patient("Nikolskiy V.G.", "patient3");
+
 
 
     public void init() throws ParseException {
@@ -40,23 +41,10 @@ public class Hospital {
         patientsList.add(patient2);
         patientsList.add(patient3);
 
-        doctor1.addPatientsToDoctor(patient1);
-
-        doctor2.addPatientsToDoctor(patient1);
-        doctor2.addPatientsToDoctor(patient2);
-        doctor2.addPatientsToDoctor(patient3);
-
-        doctor3.addPatientsToDoctor(patient3);
-
-        //тест. время записи пока не реализовано
         doctor1.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-09 10:40").getTime()),patient1);
-        doctor1.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-09 17:40").getTime()),patient2);
-        doctor1.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-09 18:40").getTime()),patient3);
 
-        doctor2.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-05 10:40").getTime()),patient1);
         doctor2.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-05 11:40").getTime()),patient2);
         doctor2.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-05 12:40").getTime()),patient3);
-
 
         doctor3.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-08 15:40").getTime()),patient1);
         doctor3.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-08 12:40").getTime()),patient2);
@@ -67,6 +55,7 @@ public class Hospital {
 
     public void open() throws ParseException {
         init();
+
 
         while (true) {
             currentUser = checkLogin();
@@ -93,17 +82,12 @@ public class Hospital {
                         System.out.println("Укажите ID врача, записи к которому Вы хотите посмотреть?");
                         int choice2 = scanner.nextInt();
 
-                        for (int i = 0; i < doctorList.get(choice2).getDoctorPatientList().size(); i++) {
-                            System.out.println(i + ". " + doctorList.get(choice2).getDoctorPatientList().get(i).getName());
-                            //System.out.println(i + ". " + doctorList.get(choice2).getDoctorTimePatientMap().get(i).getName());
+                        System.out.println(doctorList.get(choice2).getTimeForPatients());
 
-                        }
+                        System.out.println("----------------------------");
+                        System.out.println("Выход из системы.");
+                        System.out.println("----------------------------");
 
-                            System.out.println("----------------------------");
-                            System.out.println("Выход из системы.");
-                            System.out.println("----------------------------");
-
-                            break;
 }
 
 
@@ -115,22 +99,15 @@ public class Hospital {
                 int choice = scanner.nextInt();
                 switch (choice) {
                     case 1:
-
-                        for (int i = 0; i < ((Doctor) currentUser).getDoctorPatientList().size(); i++) {
-                            System.out.println(i + ". " + ((Doctor) currentUser).getDoctorPatientList().get(i).getName());
-                        }
-
-                        System.out.println("----------------------------");
-                        System.out.println("Выход из системы.");
-                        System.out.println("----------------------------");
-
+                        System.out.println(((Doctor) currentUser).getTimeForPatients());
                         break;
                     case 2:
-                        System.out.println("----------------------------");
-                        System.out.println("Выход из системы.");
-                        System.out.println("----------------------------");
                         break;
                 }
+                System.out.println("----------------------------");
+                System.out.println("Выход из системы.");
+                System.out.println("----------------------------");
+
             } else if (currentUser instanceof Patient) {
                 System.out.println("----------------------------");
                 System.out.println("Выберите желаемое действие:");
@@ -143,28 +120,40 @@ public class Hospital {
                     case 1:
                         System.out.println("Список врачей");
                         for (int i = 0; i < doctorList.size(); i++) {
-                            System.out.println(i+". "+ doctorList.get(i).getName()+". Специализация: " + doctorList.get(i).getSpecialisation());
+                            System.out.println(i + ". " + doctorList.get(i).getName() + ". Специализация: " + doctorList.get(i).getSpecialisation());
                         }
                         System.out.println("----------------------------");
                         System.out.println("К какому врачу Вы хотите записаться?");
                         int choise2 = scanner.nextInt();
                         for (int i = 0; i < doctorList.size(); i++) {
-                            if (choise2 == doctorList.get(i).getId()){
-                                doctorList.get(i).addPatientsToDoctor((Patient) currentUser);
+                            if (choise2 == doctorList.get(i).getId()) {
+                                System.out.println("Прием пациентов осуществляется с 08:00 до 20:00");
+                                System.out.println("Введите желаемую дату и время визита в формате год-месяц-число часы:минуты");
+                                String date = scanner.next();
+
+                                try{
+//                                doctorList.get(i).addDoctorTimePatientMap(new Date(sdfDate.parse("2019-07-08 15:40").getTime()), (Patient) currentUser);}
+                                    doctorList.get(i).addDoctorTimePatientMap(new Date(sdfDate.parse(date).getTime()), (Patient) currentUser);}
+                                catch (ParseException e) {
+                                    System.out.println("Вы ввели дату в неправильном формате.");
+                                    return;
+                                }
+                                System.out.println("Вы успешно записались к врачу!");
+
+
+
                             }
                         }
-                        System.out.println("Вы успешно записались к врачу!");
-                        System.out.println("----------------------------");
-                        System.out.println("Выход из системы.");
-                        System.out.println("----------------------------");
+
                         break;
                     case 2:
-                        System.out.println("----------------------------");
-                        System.out.println("Выход из системы.");
-                        System.out.println("----------------------------");
                         break;
-
                 }
+                    System.out.println("----------------------------");
+                    System.out.println("Выход из системы.");
+                    System.out.println("----------------------------");
+
+
 
             } else {
                 System.out.println("----------------------------");
@@ -181,7 +170,7 @@ public class Hospital {
     public User checkLogin() {
 
         System.out.println("Введите логин");
-        enterLogin = scanner.next();
+        enterLogin = scanner.nextLine();
 
         if (enterLogin.equalsIgnoreCase("exit"))
             return null;
