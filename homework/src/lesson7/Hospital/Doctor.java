@@ -52,4 +52,8 @@ public class Doctor  extends User{
     public void addDoctorTimePatientMap(Date date, Patient patient) {
         getDoctorTimePatientMap().put(date, patient);
     }
+
+
+
+
 }
