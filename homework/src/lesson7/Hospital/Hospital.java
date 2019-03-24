@@ -13,10 +13,12 @@ public class Hospital {
 
     Scanner scanner = new Scanner(System.in);
     String enterLogin;
-    String enterCommand;
 
+    User currentUser;
 
-    SimpleDateFormat sdfDate = new SimpleDateFormat("HH:mm");
+    SimpleDateFormat sdfDate = new SimpleDateFormat("YYYY-MM-DD HH:mm");
+
+    Administrator administrator = new Administrator();
 
     MainDoctor mainDoctor = new MainDoctor("Ivanov I.I.", "ivanov");
     Doctor doctor1 = new Doctor(0, "Petrov P.P.", "petrov", "Surgeon");
@@ -28,11 +30,8 @@ public class Hospital {
     Patient patient3 = new Patient("Nikolskiy V.G.", "patient3");
 
 
-
-    User currentUser;
-
-
     public void init() throws ParseException {
+
         doctorList.add(doctor1);
         doctorList.add(doctor2);
         doctorList.add(doctor3);
@@ -50,20 +49,18 @@ public class Hospital {
         doctor3.addPatientsToDoctor(patient3);
 
         //тест. время записи пока не реализовано
-        doctor1.addDoctorTimePatientMap( new java.sql.Date(sdfDate.parse("15:40").getTime()),patient1);
-        doctor1.addDoctorTimePatientMap( new java.sql.Date(sdfDate.parse("13:50").getTime()),patient2);
-        doctor1.addDoctorTimePatientMap( new java.sql.Date(sdfDate.parse("14:00").getTime()),patient3);
+        doctor1.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-09 10:40").getTime()),patient1);
+        doctor1.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-09 17:40").getTime()),patient2);
+        doctor1.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-09 18:40").getTime()),patient3);
 
-        doctor2.addDoctorTimePatientMap( new java.sql.Date(sdfDate.parse("15:40").getTime()),patient1);
-        doctor2.addDoctorTimePatientMap( new java.sql.Date(sdfDate.parse("13:50").getTime()),patient2);
-        doctor2.addDoctorTimePatientMap( new java.sql.Date(sdfDate.parse("14:00").getTime()),patient3);
-
-
-        doctor3.addDoctorTimePatientMap( new java.sql.Date(sdfDate.parse("15:40").getTime()),patient1);
-        doctor3.addDoctorTimePatientMap( new java.sql.Date(sdfDate.parse("13:50").getTime()),patient2);
-        doctor3.addDoctorTimePatientMap( new java.sql.Date(sdfDate.parse("14:00").getTime()),patient3);
+        doctor2.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-05 10:40").getTime()),patient1);
+        doctor2.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-05 11:40").getTime()),patient2);
+        doctor2.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-05 12:40").getTime()),patient3);
 
 
+        doctor3.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-08 15:40").getTime()),patient1);
+        doctor3.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-08 12:40").getTime()),patient2);
+        doctor3.addDoctorTimePatientMap( new Date(sdfDate.parse("2019-07-08 11:40").getTime()),patient3);
 
     }
 
@@ -98,7 +95,8 @@ public class Hospital {
 
                         for (int i = 0; i < doctorList.get(choice2).getDoctorPatientList().size(); i++) {
                             System.out.println(i + ". " + doctorList.get(choice2).getDoctorPatientList().get(i).getName());
-                            System.out.println(i + ". " + doctorList.get(choice2).getDoctorTimePatientMap().get(i).getName());
+                            //System.out.println(i + ". " + doctorList.get(choice2).getDoctorTimePatientMap().get(i).getName());
+
                         }
 
                             System.out.println("----------------------------");
