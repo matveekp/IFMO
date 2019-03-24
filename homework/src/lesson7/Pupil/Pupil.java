@@ -35,6 +35,7 @@ public class Pupil {
 
     public void setExams(String[] exams, int[] grade) {
         if (exams.length == grade.length) {
+            examResults = new ExamResult[exams.length];
             for (int i = 0; i < grade.length; i++) {
                 if (grade[i] < 1 && grade[i] > 5) {
                     System.out.println("Оценки должны быть в диапазоне от 1 до 5");
@@ -51,10 +52,17 @@ public class Pupil {
 
     @Override
     public String toString() {
-        return "Студент" +
-                "id=" + id +
-                ", examResults=" + Arrays.toString(examResults) +
-                '}';
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < examResults.length; i++) {
+
+            stringBuilder.append("\n");
+            stringBuilder.append(examResults[i]);
+
+        }
+        return "Студент: " +
+                id +
+                stringBuilder;
     }
 
     private class ExamResult {
@@ -72,7 +80,7 @@ public class Pupil {
 
         @Override
         public String toString() {
-            return object + (status ? "сдал" : "не сдал");
+            return object + (status ? " сдал" : " не сдал");
         }
     }
 
