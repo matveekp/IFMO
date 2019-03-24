@@ -16,8 +16,8 @@ public class Test {
 //    Биология сдал
 
         Pupil pupil = new Pupil(123);
-        String ex[] = {"Математика","Биология"};
-        int marks[] = { 1, 5 };
+        String[] ex = {"Математика","Биология"};
+        int[] marks = { 1, 5 };
 
         pupil.setExams(ex, marks);
         System.out.println(pupil);
