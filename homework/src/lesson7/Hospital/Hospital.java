@@ -9,7 +9,7 @@ public class Hospital {
 
     private static int patientCount = 3;
     private List<Doctor> doctorList = new ArrayList<>();
-    private List<Patient> patientsList = new ArrayList<>();
+    List<Patient> patientsList = new ArrayList<>();
 
     Scanner scanner = new Scanner(System.in);
     String enterLogin;

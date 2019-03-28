@@ -7,11 +7,15 @@ package lesson5.Task1;
 //        Создать интерфейсы: Stack, Queue и List, для каждого определить методы, соответствующие этим структурам данных.
 //        Список должен реализовать эти интерфейсы и соответствующие методы.
 
+import java.util.Arrays;
+
 public class Test {
 
     public static void main(String[] args) {
 
         MyList myList = new MyList();
+
+
 
         myList.add(4);
         myList.add(2);

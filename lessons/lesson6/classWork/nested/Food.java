@@ -8,6 +8,22 @@ public class Food {
     private final int calories;
 
 
+
+        private Food(Builder builder) {
+            portion = builder.portion;
+            calories = builder.calories;
+            fat = builder.fat;
+        }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "portion=" + portion +
+                ", fat=" + fat +
+                ", calories=" + calories +
+                '}';
+    }
+
     static class Builder {
         private final int portion;
 
@@ -33,20 +49,6 @@ public class Food {
             return new Food(this);
         }
 
-    }
-        private Food(Builder builder) {
-            portion = builder.portion;
-            calories = builder.calories;
-            fat = builder.fat;
-        }
-
-    @Override
-    public String toString() {
-        return "Food{" +
-                "portion=" + portion +
-                ", fat=" + fat +
-                ", calories=" + calories +
-                '}';
     }
 }
 
