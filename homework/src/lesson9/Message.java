@@ -1,6 +1,9 @@
 package lesson9;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 enum MessagePriority {
     LOW, MEDIUM, HIGH, URGENT;
@@ -75,6 +78,13 @@ class Test2 {
     public static void main(String[] args) {
 
 
+        List<Message> myList = new ArrayList<>(MessageGenerator.generate(500));
+
+        MessageTask.countEachPriority(myList);
+
+
+
+
     }
 }
 
@@ -86,6 +96,10 @@ class MessageTask {
     public static void countEachPriority(List<Message> messageList) {
         // Подсчитать количество сообщений для каждого приоритела
         // Ответ в консоль
+
+
+
+
     }
 
     public static void countEachCode(List<Message> messageList) {
@@ -119,5 +133,29 @@ class MessageTask {
     }
 
 
+}
+
+class MessageGenerator {
+    public static List<Message> generate(int num){
+        if (num <= 0) {
+            return Collections.emptyList();
+        }
+
+        Random random = new Random();
+        List<Message> messages = new ArrayList<>(num);
+
+//        values() - вернет массив констант
+        int typesCount = MessagePriority.values().length;
+
+        for (int i = 0; i < num; i++){
+            messages.add(
+                    new Message(
+                            random.nextInt(10),
+                            MessagePriority.getPriority(random.nextInt(typesCount)))
+            );
+        }
+
+        return messages;
+    }
 }
 
