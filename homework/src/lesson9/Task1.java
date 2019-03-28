@@ -14,6 +14,8 @@ public class Task1 {
 
     public void run() {
         list = new ArrayList<>();
+        scanner = new Scanner(System.in);
+
         for (int i = 0; i < 5 ; i++) {
             list.add(scanner.next());
         }
@@ -22,11 +24,23 @@ public class Task1 {
             @Override
             public int compare(String o1, String o2) {
 
-                return o1.length() == o2.length() ? 0 : o1.length() > o2.length() ? 1 : 0 ;
+                return o1.length() == o2.length() ? 0 : o1.length() > o2.length() ? 1 : -1 ;
             }
         });
 
-        System.out.println(list);
+        int minLength = list.get(0).length();
+
+        for (int i = 0; i < list.size(); i++) {
+
+            if (list.get(i).length() == minLength)
+                System.out.println(list.get(i));
+            else
+                break;
+
+        }
+
+
+
 
     }
 
