@@ -93,24 +93,8 @@ class MessageTask {
     public static void countEachPriority(List<Message> messageList) {
         // Подсчитать количество сообщений для каждого приоритела
         // Ответ в консоль
-        String name1 = String.valueOf(MessagePriority.getPriority(0));
-        String name2 = String.valueOf(MessagePriority.getPriority(1));
-        String name3 = String.valueOf(MessagePriority.getPriority(2));
-        String name4 = String.valueOf(MessagePriority.getPriority(3));
-
-        Map<String, String> result = new HashMap<>();
 
 
-        for (Message message : messageList) {
-
-            //может в hashmap запихнуть???
-            // тип  и кол-во
-
-//            String type
-//
-//            result.put()
-
-        }
 
 
 
