@@ -58,7 +58,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Имя: " + name  + " Возраст: " + age + " Зарплата: "  + salary + " Компания: " + company;
+        return "Имя: " + name  + " Возраст: " + age + " Зарплата: "  + salary + " Company: " + company;
     }
 }
 
