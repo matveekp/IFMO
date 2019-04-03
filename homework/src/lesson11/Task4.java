@@ -23,7 +23,6 @@ public class Task4 {
 
                 if (input.read() == ',')
                     count++;
-
             }
 
             System.out.println(count);
