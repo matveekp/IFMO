@@ -1,4 +1,4 @@
-package lesson12.messageApp;
+package lesson12;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -25,4 +25,3 @@ public class Connection{
         return (Message) in.readObject();
     }
 }
-

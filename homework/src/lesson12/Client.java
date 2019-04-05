@@ -1,18 +1,19 @@
-package lesson12.messageApp;
+package lesson12;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Properties;
 import java.util.Scanner;
 
-public class MessageClient {
+public class Client {
+
     private String server;
     private int port;
     private Connection connection;
     private Scanner scanner;
 
-    public MessageClient(String server, int port) {
+    public Client(String server, int port) {
         this.server = server;
         this.port = port;
         this.scanner = new Scanner(System.in);
@@ -63,7 +64,7 @@ public class MessageClient {
 
     public static void main(String[] args) {
         try (InputStream inputStream =
-                     MessageClient.class
+                     Client.class
                              .getClassLoader()
                              .getResourceAsStream("config.properties")){
 
@@ -72,8 +73,8 @@ public class MessageClient {
 
             String server = properties.getProperty("server");//"127.0.0.1";
             int port = Integer.parseInt(properties.getProperty("port")); //8090;
-            MessageClient messageClient =
-                    new MessageClient(server, port);
+            Client messageClient =
+                    new Client(server, port);
             messageClient.start();
         } catch (IOException e) {
             e.printStackTrace();
@@ -83,5 +84,3 @@ public class MessageClient {
 
     }
 }
-
-

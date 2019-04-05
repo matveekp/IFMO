@@ -13,8 +13,6 @@ public class Homework10 {
     public static void main(String[] args) throws IOException {
 
 
-
-
         ClassLoader loader = Homework10.class.getClassLoader();
         File file = new File(loader.getResource("wp.txt").getFile());
 
@@ -39,7 +37,7 @@ public class Homework10 {
         }
 
         // -----------Task 1 ------------------
-        Map<String, Integer> map = new HashMap<>();
+        Map<String, Integer> map = new TreeMap<>();
 
         for (int i = 0; i < words.size(); i++) {
             if (map.containsKey(words.get(i)))
@@ -48,13 +46,44 @@ public class Homework10 {
         }
 
 
-
         for (Map.Entry<String, Integer> stringIntegerEntry : map.entrySet()) {
             System.out.println(stringIntegerEntry.getKey() + " : " + stringIntegerEntry.getValue());
         }
 
         // -----------Task 2 ------------------
+        System.out.println("-------------------------------");
 
+
+
+
+        // -----------Task 3 ------------------ 3. Вывести топ 10 самых частых слов и фраз.
+        System.out.println("-------------------------------");
+
+        Map<String, Integer> map3 = new HashMap<>(map);
+
+
+        Comparator<Map.Entry<String, Integer>> valueComparator = new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return o1.getValue() - o2.getValue();
+            }
+        };
+
+
+       // Collections.sort(map3, new valueComparator);
+        //List<Map.Entry<String, Integer>> listOfEntries = new ArrayList<Map.Entry<String, String>>();
+
+
+
+
+
+        // -----------Task 4 ------------------
+        System.out.println("-------------------------------");
+
+
+
+
+        // -----------Task 5 ------------------
         System.out.println("-------------------------------");
 
 
