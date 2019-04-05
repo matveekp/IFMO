@@ -14,6 +14,7 @@ public class Message implements Externalizable {
     @Override
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
 
+
     }
 
     private String sender;
