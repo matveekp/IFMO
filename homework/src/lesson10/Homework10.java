@@ -109,6 +109,7 @@ public class Homework10 {
         articles.add("on");
         articles.add("to");
         articles.add("at");
+        // все возможные артикли не добавлял. Функционал работает.
 
         List<String> words4 = new ArrayList<>(words);
         words4.removeAll(articles);
