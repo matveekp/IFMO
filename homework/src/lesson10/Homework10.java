@@ -1,8 +1,6 @@
 package lesson10;
 
 
-import jdk.swing.interop.SwingInterOpUtils;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
