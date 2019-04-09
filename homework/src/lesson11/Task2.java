@@ -8,7 +8,7 @@ public class Task2 {
     public static void main(String[] args) {
 
         try {
-            //splitFiles(); не готово
+            splitFiles();
             glueFiles();
 
 
@@ -24,37 +24,37 @@ public class Task2 {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("Введите на сколько частей нужно разбить файл");
-        int count = Integer.parseInt(reader.readLine());
+        System.out.println("По сколько мегобайт нужно разбить файл");
+        int count = Integer.parseInt(reader.readLine()) * 1000000;
 
         System.out.println("Введите имя исходного файла");
         String sourceFileName = reader.readLine();
 
-        String[] outputNames = new String[count];
-
-
-        for (int i = 0; i < outputNames.length; i++) {
-            System.out.println("Введите имя файла " + i);
-            outputNames[i] = reader.readLine();
-        }
-
+        String outputFileName = sourceFileName;
 
         try (FileInputStream fileInputStream = new FileInputStream(sourceFileName);
-             BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
+             BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);) {
 
-             // FileOutputStream fileOutputStream = new FileOutputStream(outputFileName);
-             //  BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream)
-        ) {
-            while (bufferedInputStream.available() > 0) {
+            byte[] buf = new byte[count];
+            int len;
+            int i = 0;
+
+            while ((len = bufferedInputStream.read(buf)) > 0) {
+
+                try (FileOutputStream fileOutputStream = new FileOutputStream(outputFileName+i);
+                     BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
+                ) {
+                   bufferedOutputStream.write(buf, 0, len);
 
 
-               // int data = fileInputStream.read();
-                // fileOutputStream.write(data);
+                    }
 
-
+                i++;
+                }
             }
         }
-    }
+
+
 
 
     public static void glueFiles() throws IOException {
