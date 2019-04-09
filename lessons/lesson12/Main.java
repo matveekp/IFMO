@@ -60,6 +60,5 @@ public class Main {
         )) {
             oouts.writeObject(stat);
         }
-
     }
 }
