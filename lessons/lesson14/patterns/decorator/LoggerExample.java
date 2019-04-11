@@ -2,6 +2,7 @@ package patterns.decorator;
 
 import java.io.*;
 import java.util.Date;
+import java.util.Scanner;
 
 public class LoggerExample {
     public static void main(String[] args) {
@@ -13,6 +14,10 @@ public class LoggerExample {
 
         ILogger logger2 = new AuthorLogger(new DateLogger(new Logger()));
         logger2.write("log message");
+
+        Scanner scanner = new Scanner(System.in);
+        String fileName = scanner.nextLine();
+        System.out.println(fileName);
     }
 }
 
