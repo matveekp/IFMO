@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Properties;
 
 public class Container {
@@ -20,14 +21,21 @@ public class Container {
             InvocationTargetException,
             InstantiationException {
         for (Class cls: classes) {
+
             if (cls.isAnnotationPresent(Component.class)) {
+
                 Object o = cls.getDeclaredConstructor().newInstance();
                 Field[] fields = cls.getDeclaredFields();
 
+
                 for (Field field: fields) {
+
+
+
                     if (field.isAnnotationPresent(AutoField.class)){
                         field.setAccessible(true);
                         Object o1 = field.getType().getDeclaredConstructor().newInstance();
+
                         field.set(o, o1);
                         if (o1.getClass().isAnnotationPresent(Config.class)){
                             Field[] fields1 = o1.getClass().getDeclaredFields();

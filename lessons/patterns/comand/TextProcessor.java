@@ -32,6 +32,8 @@ public class TextProcessor {
                     executeCommand(new ExitCommand(this));
                     break;
             }
+
+
         }
     }
 }

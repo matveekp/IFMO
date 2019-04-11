@@ -8,6 +8,7 @@ import patterns.dicontainer.di.Component;
 public class Human {
     @AutoField
     Cat cat;
+    @AutoField
     Dog dog;
 
     public Human() {
@@ -15,8 +16,13 @@ public class Human {
     }
 
     @AutoRun
-    public void walkWithCat(){
+    public void walkWithCat() {
         System.out.println("walk with " + cat.getCatName());
+    }
+
+    @AutoRun
+    public void walkWithDog() {
+        System.out.println("walk with " + dog.getDogName());
     }
 
 }
