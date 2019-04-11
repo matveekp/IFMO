@@ -24,7 +24,7 @@ public class ArraysLesson {
 
         // доступ к элементам массива
         System.out.println(arr3[2]);
-        System.out.println(arr3[2+2]);
+        System.out.println(arr3[2 + 2]);
 //        System.out.println(arr3[7]); ArrayIndexOutOfBoundsException: 7
 
         arr3[1] = 123;
@@ -52,13 +52,13 @@ public class ArraysLesson {
         arr4 = new int[]{2, 6, 8, 3, 8, 3, 98};
         // перебор значений массива в цикле
         // элементы массива можно изменить
-        for (int i = 0; i < arr4.length; i++){
+        for (int i = 0; i < arr4.length; i++) {
             arr4[i] += 4;
         }
         System.out.println(Arrays.toString(arr4));
 
         // элементы массива нельзя изменить
-        for (int num: arr4){
+        for (int num : arr4) {
             System.out.println("num = " + num);
             num += 4;
         }

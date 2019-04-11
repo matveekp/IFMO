@@ -4,7 +4,7 @@ interface SomeInterface<T> {
     public T getData();
 }
 
-public class BookStorage<T extends Book> implements SomeInterface<T>{
+public class BookStorage<T extends Book> implements SomeInterface<T> {
     private T book;
 
     public String getBookTitle() {

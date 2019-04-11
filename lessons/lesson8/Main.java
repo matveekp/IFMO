@@ -49,7 +49,7 @@ public class Main {
     }
 
     // со всеми потомками
-    public static OtherBook getFirsBook(LinkedList<? extends Book> storage){
+    public static OtherBook getFirsBook(LinkedList<? extends Book> storage) {
 
 //        OtherBook book = new OtherBook("book", 12);
 //        storage.add(book);
@@ -57,7 +57,7 @@ public class Main {
     }
 
     // класс Book и все предки
-    public void addToStorage(LinkedList<? super Book> storage){
+    public void addToStorage(LinkedList<? super Book> storage) {
         Book book = new Book("book", 234);
         storage.add(book);
 

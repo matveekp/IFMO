@@ -34,12 +34,12 @@ public class Lesson7 {
         // -127 до 128
         Integer int1 = 2;
         Integer int2 = 2;
-        if (int1 == int2){
+        if (int1 == int2) {
             System.out.println("int1 == int2");
         }
         Integer int3 = 300;
         Integer int4 = 300;
-        if (int3 == int4){
+        if (int3 == int4) {
             System.out.println("int3 == int4");
         } else {
             System.out.println("int3 != int4");
