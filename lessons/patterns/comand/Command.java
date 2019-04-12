@@ -5,7 +5,7 @@ public abstract class Command {
     abstract boolean execute();
 
     protected TextProcessor processor;
-    public Command(TextProcessor processor){
-        this.processor = processor;
-    }
+//    public Command(TextProcessor processor){
+//        this.processor = processor;
+//    }
 }

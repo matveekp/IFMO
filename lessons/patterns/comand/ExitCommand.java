@@ -2,9 +2,9 @@ package patterns.comand;
 
 public class ExitCommand extends Command{
 
-    public ExitCommand(TextProcessor processor) {
-        super(processor);
-    }
+//    public ExitCommand(TextProcessor processor) {
+//        super(processor);
+//    }
 
     @Override
     String name() {

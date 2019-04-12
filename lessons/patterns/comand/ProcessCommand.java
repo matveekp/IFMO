@@ -2,9 +2,9 @@ package patterns.comand;
 
 public class ProcessCommand extends Command {
 
-    public ProcessCommand(TextProcessor processor) {
-        super(processor);
-    }
+//    public ProcessCommand(TextProcessor processor) {
+//        super(processor);
+//    }
 
     @Override
     String name() {

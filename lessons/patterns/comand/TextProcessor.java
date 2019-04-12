@@ -24,18 +24,34 @@ public class TextProcessor {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             // фабричный метод
-            switch (scanner.nextLine()){
-                case "process":
-                    executeCommand(new ProcessCommand(this));
-                    break;
-                case "exit":
-                    executeCommand(new ExitCommand(this));
-                    break;
+//            switch (scanner.nextLine()){
+//                case "process":
+//                    executeCommand(new ProcessCommand(this));
+//                    break;
+//                case "exit":
+//                    executeCommand(new ExitCommand(this));
+//                    break;
+//            }
+
+            Command command = getInstance(scanner.nextLine());
+            if (command!=null){
+                command.execute();
             }
 
 
         }
     }
+
+    private Command getInstance(String command) {
+        Command command1 = null;
+
+        if ("process".equals(command))
+            command1 = new ProcessCommand();
+        else if ("exit".equals(command))
+            command1 = new ExitCommand();
+    return command1;
+    }
+
 }
 
 class CommandHistory {
