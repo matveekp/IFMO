@@ -14,7 +14,7 @@ public class Book {
     }
 }
 
-class ChildBook extends Book{
+class ChildBook extends Book {
 
     public ChildBook(String title, int pageCount) {
         super(title, pageCount);

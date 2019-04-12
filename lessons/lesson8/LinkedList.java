@@ -44,7 +44,7 @@ public class LinkedList<T> {
 }
 
 
-class Node <T> {
+class Node<T> {
     T value;
 
     Node next;

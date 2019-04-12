@@ -5,7 +5,7 @@ public class FirstClass {
 /*многострочный
 комментарий*/
 
-//метод main - точка входа впрограмму
+    //метод main - точка входа впрограмму
     public static void main(String[] args) {
         System.out.println("Lesson1"); // ВЫВОД ИНФОРМАЦИИ В КОНСОЛЬ
 
@@ -86,7 +86,7 @@ public class FirstClass {
         int int1 = 12;
         int res = (int) long1 + int1;
 
-        System.out.println("ОСТАТОК ОТ ДЕЛЕНИЯ 9%2 = " + 9%7);
+        System.out.println("ОСТАТОК ОТ ДЕЛЕНИЯ 9%2 = " + 9 % 7);
 
 
         System.out.println("ИНКРЕМЕНТ И ДЕКРЕМЕНТ");

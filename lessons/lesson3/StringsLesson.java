@@ -39,37 +39,5 @@ public class StringsLesson {
         System.out.println(string4);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

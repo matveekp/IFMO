@@ -20,7 +20,7 @@ public class MapExample {
         System.out.println(userHashMap.get("asd"));
 
         // перебор
-        for(Map.Entry entry: userHashMap.entrySet()) {
+        for (Map.Entry entry : userHashMap.entrySet()) {
             System.out.println(entry.getKey());
             System.out.println(entry.getValue());
         }
@@ -86,16 +86,16 @@ public class MapExample {
             }
         }*/
 
-       Iterator<Map.Entry<String, Integer>> iterator = map.entrySet().iterator();
-       // удаление во время итерации
-       while (iterator.hasNext()){
-           Map.Entry<String, Integer> entry = iterator.next();
-           String key = entry.getKey();
-           int val = entry.getValue();
-           if (val < 20) {
-               iterator.remove();
-           }
-       }
+        Iterator<Map.Entry<String, Integer>> iterator = map.entrySet().iterator();
+        // удаление во время итерации
+        while (iterator.hasNext()) {
+            Map.Entry<String, Integer> entry = iterator.next();
+            String key = entry.getKey();
+            int val = entry.getValue();
+            if (val < 20) {
+                iterator.remove();
+            }
+        }
 
 
     }
@@ -109,7 +109,8 @@ class User {
     private String login;
     private String pwd;
 
-    public User(){}
+    public User() {
+    }
 
     public User(String login, String pwd) {
         this.login = login;

@@ -5,12 +5,12 @@ interface SomeInterface {
     public void iVoid();
 }
 
-public abstract class AbstractClass implements SomeInterface{
+public abstract class AbstractClass implements SomeInterface {
     // в абстрактном классе можно не реализовывать методы интерфейса
 
     public abstract void abstractVoid();
 
-    public void someVoid(){
+    public void someVoid() {
         System.out.println("someVoid AbstractClass");
     }
 }

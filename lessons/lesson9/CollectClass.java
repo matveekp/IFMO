@@ -13,7 +13,7 @@ public class CollectClass {
         bookArrayList.add(new Book("Book"));
         bookArrayList.add(new Book("Book"));
         bookArrayList.add(new Book("Cars"));
-        bookArrayList.add(2, new Book( "Alphabet"));
+        bookArrayList.add(2, new Book("Alphabet"));
 
         Set<Book> bookSet = new TreeSet<>(new Comparator<Book>() {
             @Override
@@ -37,7 +37,7 @@ public class CollectClass {
             for (String s : wordSplit) {
 
                 if (s.length() > 0)
-                words.add(s.trim());
+                    words.add(s.trim());
             }
 
         }
@@ -75,11 +75,6 @@ class Book {
     }
 
 }
-
-
-
-
-
 
 
 //}
