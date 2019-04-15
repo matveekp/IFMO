@@ -54,7 +54,7 @@ public class FitnessRegistrator {
             }
             del(human);
             inGroup.add(human);
-            FitnessLogger.printToFile(human, type, LocalDateTime.now().toString());
+            FitnessLogger.printToFile(human, type, "access is allowed");
         }
 
 

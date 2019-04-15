@@ -15,12 +15,10 @@ public class FitnessLogger {
         StringBuilder stringBuilder = new StringBuilder();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
-
         File file = new File("clients");
 
         stringBuilder.append(human.getSurname() + " " + human.getName() + " " + type + " " + message + " " + LocalDate.now() +
                 " " + formatter.format(LocalTime.now()) + "\n");
-
 
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
         ) {
@@ -29,8 +27,6 @@ public class FitnessLogger {
             e.printStackTrace();
         }
 
-
     }
-
-
 }
+
