@@ -24,7 +24,6 @@ public class FitnessRegistrator {
         }
 
 
-
         if (FitnessServiceEnumeration.GYM.equals(type)) {
             if (!checkSpace(inGym)) {
                 System.out.println("There are no free space in " + type.toString());
@@ -34,7 +33,7 @@ public class FitnessRegistrator {
             del(human);
             inGym.add(human);
         } else if (FitnessServiceEnumeration.POOL.equals(type)) {
-            if(!checkSpace(inPool)) {
+            if (!checkSpace(inPool)) {
                 System.out.println("There are no free space in " + type.toString());
                 FitnessLogger.printToFile(human, type);
                 throw new QueueException();
@@ -82,7 +81,6 @@ public class FitnessRegistrator {
             } else if (FitnessServiceEnumeration.GROUP.equals(type)) {
                 if (Integer.parseInt(accessMode.group()) > LocalDateTime.now().getHour()) return true;
             }
-
 
 
         }
