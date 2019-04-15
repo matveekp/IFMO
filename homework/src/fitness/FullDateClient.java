@@ -7,6 +7,7 @@ public class FullDateClient extends Human {
     private Access gym = new Access(8, 22, FitnessServiceEnumeration.GYM);
     private Access pool = new Access(8, 22, FitnessServiceEnumeration.POOL);
 
+
     public FullDateClient(String name, String surname, int bYear) {
         super(name, surname, bYear);
     }

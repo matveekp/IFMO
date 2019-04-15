@@ -1,5 +1,8 @@
 package fitness;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @AccessMode(gym = "16", group = "16", pool = "0")
 public class DayClient extends Human {
 
@@ -25,15 +28,16 @@ public class DayClient extends Human {
 
 
 
+
     public DayClient(String name, String surname, int bYear) {
         super(name, surname, bYear);
-        //TODO: подсчет даты окончания регистрацции отдельным методом
-        this.endOfReg = "12.04.2020";
+        this.endOfReg = LocalDateTime.now().plusMonths(12).toString();
+
     }
 
     public DayClient(String name, String surname, int bYear, String regDate, int endOfReg) {
         super(name, surname, bYear, regDate);
         //TODO: подсчет даты окончания регистраии отдельным методом
-        this.endOfReg = "12.08.2019";
+        this.endOfReg = LocalDateTime.now().plusMonths(endOfReg).toString();
     }
 }

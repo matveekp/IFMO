@@ -5,6 +5,7 @@ import patterns.dicontainer.di.AutoRun;
 @AccessMode(group = "0")
 public class Client extends Human {
 
+
     private boolean isVisited;
     private Access gym = new Access(8, 22 ,FitnessServiceEnumeration.GYM);
     private Access pool = new Access(8, 22 ,FitnessServiceEnumeration.POOL);

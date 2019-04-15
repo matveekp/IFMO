@@ -13,11 +13,13 @@ public class FitnessLogger {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
 
-        File file = new File("clients");
+
+       File file = new File("clients");
 
         stringBuilder.append(human.getSurname() + " " + human.getName() + " " + type + " " + LocalDate.now() +
                 " " + formatter.format(LocalTime.now()) + "\n");
-        try ( BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file)) ) {
+        try ( BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file)) ;
+        ) {
             bufferedWriter.write(stringBuilder.toString());
         } catch (IOException e) {
             e.printStackTrace();

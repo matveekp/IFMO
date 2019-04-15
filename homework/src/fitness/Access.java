@@ -9,6 +9,7 @@ public class Access {
         this.from = from;
         this.to = to;
         this.type = type;
+
     }
 
     public int getFrom() {

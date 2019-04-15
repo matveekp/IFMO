@@ -1,6 +1,7 @@
 package fitness;
 
 public class Human {
+
     private String name;
     private String surname;
     private int bYear;
