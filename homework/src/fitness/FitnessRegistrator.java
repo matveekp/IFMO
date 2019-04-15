@@ -21,7 +21,7 @@ public class FitnessRegistrator {
             String message = "Access denied";
             System.out.println(message);
             FitnessLogger.printToFile(human, type, message);
-            throw new NoAccessException();
+            throw new NoAccessException(message);
         }
 
         String message = "There are no free space in " + type.toString();
