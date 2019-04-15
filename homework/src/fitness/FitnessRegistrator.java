@@ -23,18 +23,31 @@ public class FitnessRegistrator {
             throw new NoAccessException();
         }
 
-        if (!checkSpace(inGym) || !checkSpace(inPool) || !checkSpace(inGroup)) {
-            System.out.println("There are no free space in " + type.toString());
-            FitnessLogger.printToFile(human, type);
-            throw new QueueException();
-        }
-        del(human);
+
 
         if (FitnessServiceEnumeration.GYM.equals(type)) {
+            if (!checkSpace(inGym)) {
+                System.out.println("There are no free space in " + type.toString());
+                FitnessLogger.printToFile(human, type);
+                throw new QueueException();
+            }
+            del(human);
             inGym.add(human);
         } else if (FitnessServiceEnumeration.POOL.equals(type)) {
+            if(!checkSpace(inPool)) {
+                System.out.println("There are no free space in " + type.toString());
+                FitnessLogger.printToFile(human, type);
+                throw new QueueException();
+            }
+            del(human);
             inPool.add(human);
         } else if (FitnessServiceEnumeration.GROUP.equals(type)) {
+            if (!checkSpace(inGroup)) {
+                System.out.println("There are no free space in " + type.toString());
+                FitnessLogger.printToFile(human, type);
+                throw new QueueException();
+            }
+            del(human);
             inGroup.add(human);
         }
 
