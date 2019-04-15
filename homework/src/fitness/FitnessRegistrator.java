@@ -18,36 +18,43 @@ public class FitnessRegistrator {
     public void add(Human human, FitnessServiceEnumeration type) throws QueueException, NoAccessException {
 
         if (!checkAccess(human, type)) {
-            System.out.println("Access denied");
-            FitnessLogger.printToFile(human, type);
+            String message = "Access denied";
+            System.out.println(message);
+            FitnessLogger.printToFile(human, type, message);
             throw new NoAccessException();
         }
 
+        String message = "There are no free space in " + type.toString();
 
         if (FitnessServiceEnumeration.GYM.equals(type)) {
             if (!checkSpace(inGym)) {
-                System.out.println("There are no free space in " + type.toString());
-                FitnessLogger.printToFile(human, type);
-                throw new QueueException();
+                System.out.println(message);
+                FitnessLogger.printToFile(human, type, message);
+                throw new QueueException(message);
             }
             del(human);
             inGym.add(human);
+            FitnessLogger.printToFile(human, type, LocalDateTime.now().toString());
+
         } else if (FitnessServiceEnumeration.POOL.equals(type)) {
             if (!checkSpace(inPool)) {
-                System.out.println("There are no free space in " + type.toString());
-                FitnessLogger.printToFile(human, type);
-                throw new QueueException();
+                System.out.println(message);
+                FitnessLogger.printToFile(human, type, message);
+                throw new QueueException(message);
             }
             del(human);
             inPool.add(human);
+            FitnessLogger.printToFile(human, type, LocalDateTime.now().toString());
+
         } else if (FitnessServiceEnumeration.GROUP.equals(type)) {
             if (!checkSpace(inGroup)) {
-                System.out.println("There are no free space in " + type.toString());
-                FitnessLogger.printToFile(human, type);
-                throw new QueueException();
+                System.out.println(message);
+                FitnessLogger.printToFile(human, type, message);
+                throw new QueueException(message);
             }
             del(human);
             inGroup.add(human);
+            FitnessLogger.printToFile(human, type, LocalDateTime.now().toString());
         }
 
 
