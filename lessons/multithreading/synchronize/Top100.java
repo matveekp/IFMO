@@ -56,11 +56,10 @@ public class Top100 {
 //        }
 
 
-
-        new Thread(new MyThread(words1)).start();
-        new Thread(new MyThread(words2)).start();
-        new Thread(new MyThread(words3)).start();
-        new Thread(new MyThread(words4)).start();
+        new Thread(new MyThread(words1, map)).start();
+        new Thread(new MyThread(words2, map)).start();
+        new Thread(new MyThread(words3, map)).start();
+        new Thread(new MyThread(words4, map)).start();
 
 
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
@@ -71,21 +70,23 @@ public class Top100 {
 
 }
 
-    class MyThread implements Runnable {
-        Map<String, Integer> map;
-        List<String> list;
+class MyThread implements Runnable {
+    Map<String, Integer> map;
+    List<String> list;
 
-        public MyThread(List<String> list) {
-            this.list = list;
-        }
+    public MyThread(List<String> list, Map<String, Integer> map) {
+        this.list = list;
+        this.map = map;
+    }
 
-        @Override
-        public void run() {
-            for (int i = 0; i < list.size(); i++) {
-                if (map.containsKey(list.get(i)))
-                    map.put(list.get(i), map.get(list.get(i)) + 1);
-                else map.put(list.get(i), 1);
-            }
+    @Override
+    public void run() {
+
+        for (int i = 0; i < list.size(); i++) {
+            if (map.containsKey(list.get(i)))
+                map.put(list.get(i), map.get(list.get(i)) + 1);
+            else map.put(list.get(i), 1);
         }
     }
+}
 
