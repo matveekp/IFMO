@@ -1,4 +1,4 @@
-package multithreading.synchronize;
+package multithreading;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,11 +7,11 @@ import java.util.*;
 
 public class Top100 {
 
+
     public static Map<String, Integer> map = new HashMap<>();
 
 
     public static void main(String[] args) throws IOException {
-
 
         ClassLoader loader = Top100.class.getClassLoader();
         File file = new File(loader.getResource("wp.txt").getFile());
@@ -40,30 +40,37 @@ public class Top100 {
         List<String> words4 = new ArrayList<>(words.subList(words.size() - words.size() / 4, words.size()));
 
 
-//        Map<String, Integer> myMap = new TreeMap<>();
-//
-//        for (int i = 0; i < words.size(); i++) {
-//            if (myMap.containsKey(words.get(i)))
-//                myMap.put(words.get(i), myMap.get(words.get(i)) + 1);
-//            else myMap.put(words.get(i), 1);
-//        }
+        Thread thread1 = new Thread(new MyThread(words1));
+        Thread thread2 = new Thread(new MyThread(words1));
+        Thread thread3 = new Thread(new MyThread(words1));
+        Thread thread4 = new Thread(new MyThread(words1));
+
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        thread4.start();
 
 
-//        for (int i = 0; i < 100; i++) {
-//            //System.out.println(set.pollLast());
-//
-//            //System.out.println(set);
-//        }
+        try {
+            thread1.join();
+            thread2.join();
+            thread3.join();
+            thread4.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
+        TreeSet<Map.Entry<String, Integer>> mySet = new TreeSet<>(new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return o1.getValue() - o2.getValue();
+            }
+        });
 
-        new Thread(new MyThread(words1, map)).start();
-        new Thread(new MyThread(words2, map)).start();
-        new Thread(new MyThread(words3, map)).start();
-        new Thread(new MyThread(words4, map)).start();
+        mySet.addAll(map.entrySet());
 
-
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
+        for (int i = 0; i < 10; i++) {
+            System.out.println(mySet.pollLast());
         }
 
     }
@@ -71,21 +78,21 @@ public class Top100 {
 }
 
 class MyThread implements Runnable {
-    Map<String, Integer> map;
     List<String> list;
 
-    public MyThread(List<String> list, Map<String, Integer> map) {
+    public MyThread(List<String> list) {
         this.list = list;
-        this.map = map;
     }
 
     @Override
     public void run() {
+        synchronized (Top100.map) {
 
-        for (int i = 0; i < list.size(); i++) {
-            if (map.containsKey(list.get(i)))
-                map.put(list.get(i), map.get(list.get(i)) + 1);
-            else map.put(list.get(i), 1);
+            for (int i = 0; i < list.size(); i++) {
+                if (Top100.map.containsKey(list.get(i)))
+                    Top100.map.put(list.get(i), Top100.map.get(list.get(i)) + 1);
+                else Top100.map.put(list.get(i), 1);
+            }
         }
     }
 }

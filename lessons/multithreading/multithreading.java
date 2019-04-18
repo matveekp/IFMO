@@ -5,7 +5,7 @@ public class multithreading {
     public static void main(String[] args) {
 
 
-        Thread myThread = new MyThread();
+        Thread myThread = new MyThreadd();
         myThread.start();
 
         try {
@@ -81,12 +81,12 @@ public class multithreading {
     }
 }
 
-class MyThread extends Thread {
+class MyThreadd extends Thread {
 
 
     @Override
     public void run() {
-        Thread.currentThread().setName("multithreading.MyThread");
+        Thread.currentThread().setName("multithreading.MyThreadd");
         System.out.println(Thread.currentThread().getName());
     }
 }
