@@ -13,7 +13,7 @@
 //        System.out.println(String.class);
 //        System.out.println(int.class);
 //
-//        SomeClass someClass = new SomeClass();
+//        ConcurrentExample someClass = new ConcurrentExample();
 //        System.out.println(someClass.getClass());
 //
 //        Class cls = someClass.getClass();
@@ -23,7 +23,7 @@
 //        System.out.println(cls.getName());
 //
 //        // доступ к компонентам класса
-//        Class<SomeClass> someCls = SomeClass.class;
+//        Class<ConcurrentExample> someCls = ConcurrentExample.class;
 //
 //        // доступ к полям класса
 //        Field[] fields = someCls.getFields();
@@ -44,7 +44,7 @@
 //        System.out.println(Arrays.toString(declaredConstructors));
 //
 //
-//        someClass = new SomeClass();
+//        someClass = new ConcurrentExample();
 //
 //        // доступ к конкретному полю, методу, конструктору
 //        Field field = someCls.getDeclaredField("version");
@@ -61,10 +61,10 @@
 //        System.out.println("data: " + data);
 //
 //        // конструктор
-//        Constructor<SomeClass> someClassConstructor =
+//        Constructor<ConcurrentExample> someClassConstructor =
 //                someCls.getDeclaredConstructor(String.class, int.class);
-//        SomeClass someClass1 =
-//                someClassConstructor.newInstance("SomeClass", 3);
+//        ConcurrentExample someClass1 =
+//                someClassConstructor.newInstance("ConcurrentExample", 3);
 //        System.out.println(someClass1);
 //
 //        //
@@ -76,7 +76,7 @@
 //        // написать статический toString(obj),
 //        // который возвращает информацию о переданном объекте
 //    }
-////    public static void toString(SomeClass someClass){
+////    public static void toString(ConcurrentExample someClass){
 ////
 ////    }
 //}
@@ -90,20 +90,20 @@
 //    }
 //}
 //
-//class SomeClass extends ParentClass {
+//class ConcurrentExample extends ParentClass {
 //
 //    private String name;
 //    private int version;
 //
-//    public SomeClass(String name, int version) {
+//    public ConcurrentExample(String name, int version) {
 //        this.name = name;
 //        this.version = version;
 //    }
 //
-//    public SomeClass() {
+//    public ConcurrentExample() {
 //    }
 //
-//    public SomeClass(String name) {
+//    public ConcurrentExample(String name) {
 //        this.name = name;
 //    }
 //
@@ -129,7 +129,7 @@
 //
 //    @Override
 //    public String toString() {
-//        return "SomeClass{" +
+//        return "ConcurrentExample{" +
 //                "name='" + name + '\'' +
 //                ", version=" + version +
 //                '}';

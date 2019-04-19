@@ -34,9 +34,9 @@ public class Top100 {
             }
         }
 
-        List<String> words1 = new ArrayList<>(words.subList(0, words.size() / 4));
-        List<String> words2 = new ArrayList<>(words.subList(words.size() / 4, words.size() / 2));
-        List<String> words3 = new ArrayList<>(words.subList(words.size() / 2, words.size() - words.size() / 4));
+        List<String> words1 = new ArrayList<>(words.subList(0, words.size() / 4 +1));
+        List<String> words2 = new ArrayList<>(words.subList(words.size() / 4, words.size() / 2 + 1));
+        List<String> words3 = new ArrayList<>(words.subList(words.size() / 2, words.size() - words.size() / 4 + 1) );
         List<String> words4 = new ArrayList<>(words.subList(words.size() - words.size() / 4, words.size()));
 
 

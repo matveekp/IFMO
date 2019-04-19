@@ -20,9 +20,9 @@ public class SomeClass {
 
 class SomeClass2 {
     public void someVoid() {
-        SomeClass someClass = SomeClass.getObj();// new SomeClass();
-        SomeClass someClass2 = SomeClass.getObj();// new SomeClass();
-        SomeClass someClass3 = SomeClass.getObj();// new SomeClass();
+        SomeClass someClass = SomeClass.getObj();// new ConcurrentExample();
+        SomeClass someClass2 = SomeClass.getObj();// new ConcurrentExample();
+        SomeClass someClass3 = SomeClass.getObj();// new ConcurrentExample();
 
         someClass.ptintInfo("data");
     }

@@ -80,7 +80,7 @@ class SomeClass extends ParentClass {
 
     @Override
     public String toString() {
-        return "SomeClass{" +
+        return "ConcurrentExample{" +
                 "name='" + name + '\'' +
                 ", version=" + version +
                 '}';
