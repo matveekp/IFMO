@@ -9,7 +9,7 @@ package multithreading.pizza;
 // повар забирает заказ из очерди 2 и добавляет в очередь 3
 // клиент забирает заказ из очереди 3
 
-import com.sun.org.apache.xpath.internal.operations.Or;
+
 
 import java.util.concurrent.ArrayBlockingQueue;
 
