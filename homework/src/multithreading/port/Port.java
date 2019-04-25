@@ -1,23 +1,30 @@
 package multithreading.port;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.SynchronousQueue;
+
 public class Port {
-    public static void main(String[] args) {
 
-        Dock dock1 = new Dock(1);
-        Dock dock2 = new Dock(2);
+    List<SynchronousQueue<Ship>> list;
+    List<Dock> dockList = new ArrayList<>();
+    Dock dock;
 
+    public Dock getFreeDock(){
+        for (Dock dock : dockList) {
 
-        Ship ship1 = new Ship();
-        Ship ship2 = new Ship();
-        Ship ship3 = new Ship();
-        Ship ship4 = new Ship();
+            if (dock.isFree())
+                return dock;
 
-
-        new Thread(new Ship()).start();
-
-
-
+        }
+       getFreeDock();
+       return dock;
     }
+
+    public void addDock(Dock dock){
+        dockList.add(dock);
+    }
+
 
 
 }
