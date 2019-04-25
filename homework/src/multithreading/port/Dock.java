@@ -1,17 +1,22 @@
 package multithreading.port;
 
+import java.util.List;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.SynchronousQueue;
 
 public class Dock {
-    int id;
-    SynchronousQueue<Ship> queue;
-    Port port;
+    private int id;
+    private SynchronousQueue<Ship> queue;
+    private Port port;
+    private Semaphore semaphore;
+    private List<Ship> list;
 
 
     public Dock(int id, Port port) {
         this.id = id;
         this.port = port;
         this.queue = new SynchronousQueue<>();
+        this.semaphore = new Semaphore(1);
     }
 
 
@@ -38,10 +43,17 @@ public class Dock {
 
     public void takeShip(Ship ship) throws InterruptedException {
 
-
+        if (queue.isEmpty()) {
         System.out.println("Прибывает корабль " + ship.getName() + " к доку " + id);
+            queue.offer(ship);
+//            queue.put(ship);
+        }
+        else {
+            queue.wait();
+        }
 
-        queue.offer(ship);
+
+
 
         System.out.println("Корабль " + ship.getName() + " причалил к доку " + id);
         Thread.sleep(1000);

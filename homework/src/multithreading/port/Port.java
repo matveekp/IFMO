@@ -2,27 +2,23 @@ package multithreading.port;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.SynchronousQueue;
 
 public class Port {
-
-    List<SynchronousQueue<Ship>> list;
-    List<Dock> dockList = new ArrayList<>();
-    Dock dock;
+    private List<Dock> dockList = new ArrayList<>();
 
     public Dock getFreeDock(){
         for (Dock dock : dockList) {
-
             if (dock.isFree())
                 return dock;
-
         }
        getFreeDock();
-       return dock;
+       return null;
     }
 
     public void addDock(Dock dock){
-        dockList.add(dock);
+        if (!dockList.contains(dock))
+            dockList.add(dock);
+        else System.out.println("В порту уже числится этот док ");
     }
 
 

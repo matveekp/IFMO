@@ -14,22 +14,6 @@ public class Ship {
         this.name = name;
     }
 
-    public int getMaxWeight() {
-        return maxWeight;
-    }
-
-    public void setMaxWeight(int maxWeight) {
-        this.maxWeight = maxWeight;
-    }
-
-    public int getCurrentWeight() {
-        return currentWeight;
-    }
-
-    public void setCurrentWeight(int currentWeight) {
-        this.currentWeight = currentWeight;
-    }
-
     public String getName() {
         return name;
     }

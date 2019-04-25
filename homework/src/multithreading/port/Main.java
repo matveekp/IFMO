@@ -8,28 +8,34 @@ public class Main {
 
         Dock dock1 = new Dock(1, port);
         Dock dock2 = new Dock(2, port);
+        Dock dock3 = new Dock(2, port);
 
         port.addDock(dock1);
-        port.addDock(dock2);
+//        port.addDock(dock2);
+//        port.addDock(dock3);
 
 
         Ship ship1 = new Ship(1000, 500,"cargoShip1");
-        Ship ship2 = new Ship(2000, 100,"cargoShip2");
+        Ship ship2 = new Ship(2000, 0,"cargoShip2");
         Ship ship3 = new Ship(2500, 2500,"cargoShip3");
         Ship ship4 = new Ship(1000,  1000,"cargoShip4");
 
-//        dock1.takeShip(ship1);
-//        dock1.takeShip(ship2);
 
 
         new Thread(new MyThread(ship1, port)).start();
+        Thread.sleep(500);
         new Thread(new MyThread(ship2, port)).start();
+        Thread.sleep(500);
+        new Thread(new MyThread(ship3, port)).start();
+        Thread.sleep(500);
+        new Thread(new MyThread(ship4, port)).start();
+
     }
 }
 
 class MyThread implements Runnable {
-    Ship ship;
-    Port port;
+    private Ship ship;
+    private Port port;
 
     public MyThread(Ship ship, Port port) {
         this.ship = ship;
