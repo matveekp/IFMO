@@ -1,12 +1,12 @@
 package multithreading.port;
 
 import java.util.List;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.*;
 
 public class Dock {
     private int id;
-    private SynchronousQueue<Ship> queue;
+//    private SynchronousQueue<Ship> queue;
+    private BlockingQueue<Ship> queue;
     private Port port;
     private Semaphore semaphore;
     private List<Ship> list;
@@ -15,7 +15,8 @@ public class Dock {
     public Dock(int id, Port port) {
         this.id = id;
         this.port = port;
-        this.queue = new SynchronousQueue<>();
+//        this.queue = new SynchronousQueue<>();
+        this.queue = new LinkedBlockingQueue<>();
         this.semaphore = new Semaphore(1);
     }
 
@@ -45,8 +46,8 @@ public class Dock {
 
         if (queue.isEmpty()) {
         System.out.println("Прибывает корабль " + ship.getName() + " к доку " + id);
-            queue.offer(ship);
-//            queue.put(ship);
+//            queue.offer(ship);
+            queue.put(ship);
         }
         else {
             queue.wait();
@@ -79,8 +80,9 @@ public class Dock {
         System.out.println("Корабль " + ship.getName() + " покинул док " + id);
     }
 
-    public boolean isFree() {
-        return queue.isEmpty();
+    public boolean isFree()
+    {
+        return queue.size() == 0 ? true : false;
     }
 
 

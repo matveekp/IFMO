@@ -11,8 +11,8 @@ public class Port {
             if (dock.isFree())
                 return dock;
         }
-       getFreeDock();
-       return null;
+
+       return getFreeDock();
     }
 
     public void addDock(Dock dock){
