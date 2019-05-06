@@ -7,8 +7,8 @@ import java.util.concurrent.*;
 
 public class Dock {
     private int id;
-    private SynchronousQueue<Ship> queue;
-//    private BlockingQueue<Ship> queue;
+    //    private SynchronousQueue<Ship> queue;
+    private BlockingQueue<Ship> queue;
     private Port port;
     private Semaphore semaphore;
     private List<Ship> list;
@@ -17,8 +17,8 @@ public class Dock {
     public Dock(int id, Port port) {
         this.id = id;
         this.port = port;
-        this.queue = new SynchronousQueue<>();
-//        this.queue = new LinkedBlockingQueue<>();
+//        this.queue = new SynchronousQueue<>();
+        this.queue = new ArrayBlockingQueue<>(1);
         this.semaphore = new Semaphore(1);
     }
 
@@ -47,17 +47,15 @@ public class Dock {
 
 
     public void takeShip(Ship ship) throws InterruptedException {
-        LOGGER.debug("Ship is going to doc");
-        if (queue.isEmpty()) {
+
+
+
+//        if (queue.isEmpty()) {
+
+
+        queue.put(ship);
+        LOGGER.debug("Ship " + ship.getName() + " is going to doc");
         System.out.println("Прибывает корабль " + ship.getName() + " к доку " + id);
-            queue.offer(ship);
-//            queue.put(ship);
-        }
-        else {
-            queue.wait();
-        }
-
-
 
 
         System.out.println("Корабль " + ship.getName() + " причалил к доку " + id);
@@ -75,18 +73,27 @@ public class Dock {
 
         Thread.sleep(500);
         releaseShip(ship);
-        LOGGER.debug("Ship leaved doc");
+        LOGGER.debug("Ship " + ship.getName() + " leaved doc");
     }
 
 
     public void releaseShip(Ship ship) throws InterruptedException {
         queue.poll();
         System.out.println("Корабль " + ship.getName() + " покинул док " + id);
+        Thread.sleep(500);
     }
 
-    public boolean isFree()
-    {
-        return queue.size() == 0 ? true : false;
+    public boolean isFree() {
+        while (queue.size() != 0) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        //return queue.size() == 0 ? true : false;
+        return true;
     }
 
 

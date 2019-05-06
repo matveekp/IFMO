@@ -13,8 +13,8 @@ public class Main {
         Dock dock3 = new Dock(2, port);
 
         port.addDock(dock1);
-//        port.addDock(dock2);
-//        port.addDock(dock3);
+        port.addDock(dock2);
+        port.addDock(dock3);
 
 
         Ship ship1 = new Ship(1000, 500,"cargoShip1");

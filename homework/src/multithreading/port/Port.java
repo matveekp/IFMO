@@ -11,10 +11,11 @@ public class Port {
 
 
     public Dock getFreeDock(){
-        LOGGER.debug("Trying to find a free doc");
+
         for (Dock dock : dockList) {
             if (dock.isFree())
                 return dock;
+            else return getFreeDock();
         }
 
        return getFreeDock();
