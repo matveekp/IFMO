@@ -1,5 +1,7 @@
 package multithreading.port;
 
+import org.apache.log4j.Logger;
+
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
@@ -42,13 +44,16 @@ class MyThread implements Runnable {
         this.port = port;
     }
 
+    private static final Logger LOGGER = Logger.getLogger(MyThread.class);
+
     @Override
     public void run() {
 
+        LOGGER.debug("Starting Thread" + MyThread.class.getSimpleName());
         try {
             port.getFreeDock().takeShip(ship);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            LOGGER.error(e);
         }
 
     }

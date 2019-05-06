@@ -2,6 +2,8 @@ package multithreading.port;
 
 public class Ship {
 
+
+
     private int maxWeight;
     private int currentWeight;
     private String name;
