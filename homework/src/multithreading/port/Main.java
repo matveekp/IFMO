@@ -44,6 +44,7 @@ class MyThread implements Runnable {
         this.port = port;
     }
 
+
     private static final Logger LOGGER = Logger.getLogger(MyThread.class);
 
     @Override
