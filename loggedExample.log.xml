@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-05-06T19:41:46</date>
+  <millis>1557160906260</millis>
+  <sequence>0</sequence>
+  <logger>logging.LoggedExample</logger>
+  <level>INFO</level>
+  <class>logging.LoggedExample</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Hello</message>
+</record>
+</log>

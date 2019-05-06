@@ -1,0 +1,87 @@
+2019-05-06 20:29:27 DEBUG Log4jExample:11 - 3 / 0
+log4j-1.2.17.jar2019-05-06 20:29:27 ERROR Log4jExample:15 - Some error: 
+log4j-1.2.17.jarjava.lang.ArithmeticException: / by zero
+	at logging.Log4jExample.main(Log4jExample.java:12)
+2019-05-06 20:30:42 DEBUG Log4jExample:11 - 3 / 0
+log4j-1.2.17.jar2019-05-06 20:30:42 ERROR Log4jExample:15 - Some error: 
+log4j-1.2.17.jarjava.lang.ArithmeticException: / by zero
+	at logging.Log4jExample.main(Log4jExample.java:12)
+2019-05-06 20:35:45 DEBUG Log4jExample:11 - 3 / 0
+log4j-1.2.17.jar2019-05-06 20:35:45 ERROR Log4jExample:15 - Some error: 
+log4j-1.2.17.jarjava.lang.ArithmeticException: / by zero
+	at logging.Log4jExample.main(Log4jExample.java:12)
+2019-05-06 21:04:40 DEBUG MyThread:52 - starting
+log4j-1.2.17.jar2019-05-06 21:04:41 DEBUG MyThread:52 - starting
+log4j-1.2.17.jar2019-05-06 21:04:41 DEBUG MyThread:52 - starting
+log4j-1.2.17.jar2019-05-06 21:04:42 DEBUG MyThread:52 - starting
+log4j-1.2.17.jar2019-05-06 21:09:50 DEBUG MyThread:52 - Starting Threadmultithreading.port.MyThread
+log4j-1.2.17.jar2019-05-06 21:09:50 DEBUG MyThread:52 - Starting Threadmultithreading.port.MyThread
+log4j-1.2.17.jar2019-05-06 21:09:51 DEBUG MyThread:52 - Starting Threadmultithreading.port.MyThread
+log4j-1.2.17.jar2019-05-06 21:09:51 DEBUG MyThread:52 - Starting Threadmultithreading.port.MyThread
+log4j-1.2.17.jar2019-05-06 21:10:10 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:10:11 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:10:11 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:10:12 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:11:44 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:11:44 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:11:44 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:11:44 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:11:45 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:11:45 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:11:45 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:11:45 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:15:17 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:15:17 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:15:17 DEBUG MyThread:50 - Ship is going to doc
+log4j-1.2.17.jar2019-05-06 21:15:17 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:15:17 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:15:17 DEBUG MyThread:50 - Ship is going to doc
+log4j-1.2.17.jar2019-05-06 21:15:18 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:15:18 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:15:18 DEBUG MyThread:50 - Ship is going to doc
+log4j-1.2.17.jar2019-05-06 21:15:18 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:15:18 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:15:18 DEBUG MyThread:50 - Ship is going to doc
+log4j-1.2.17.jar2019-05-06 21:16:18 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:16:18 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:16:18 DEBUG MyThread:50 - Ship is going to doc
+log4j-1.2.17.jar2019-05-06 21:16:18 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:16:18 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:16:18 DEBUG MyThread:50 - Ship is going to doc
+log4j-1.2.17.jar2019-05-06 21:16:19 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:16:19 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:16:19 DEBUG MyThread:50 - Ship is going to doc
+log4j-1.2.17.jar2019-05-06 21:16:19 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:16:19 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:16:19 DEBUG MyThread:50 - Ship is going to doc
+log4j-1.2.17.jar2019-05-06 21:17:02 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:17:02 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:17:02 DEBUG MyThread:50 - Ship is going to doc
+log4j-1.2.17.jar2019-05-06 21:17:03 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:17:03 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:17:03 DEBUG MyThread:50 - Ship is going to doc
+log4j-1.2.17.jar2019-05-06 21:17:03 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:17:03 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:17:03 DEBUG MyThread:50 - Ship is going to doc
+log4j-1.2.17.jar2019-05-06 21:17:03 DEBUG MyThread:39 - Start unload ship
+log4j-1.2.17.jar2019-05-06 21:17:04 DEBUG MyThread:52 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-06 21:17:04 DEBUG MyThread:14 - Trying to find a free doc
+log4j-1.2.17.jar2019-05-06 21:17:04 DEBUG MyThread:50 - Ship is going to doc
+log4j-1.2.17.jar2019-05-06 21:17:04 DEBUG MyThread:27 - Start load ship
+log4j-1.2.17.jar2019-05-06 21:17:04 DEBUG MyThread:39 - Start unload ship
+log4j-1.2.17.jar2019-05-06 21:17:05 DEBUG MyThread:39 - Start unload ship
+log4j-1.2.17.jar2019-05-06 21:17:05 DEBUG MyThread:45 - Ship is unloaded
+log4j-1.2.17.jar2019-05-06 21:17:05 DEBUG MyThread:27 - Start load ship
+log4j-1.2.17.jar2019-05-06 21:17:08 DEBUG MyThread:45 - Ship is unloaded
+log4j-1.2.17.jar2019-05-06 21:17:08 DEBUG MyThread:27 - Start load ship
+log4j-1.2.17.jar2019-05-06 21:17:08 DEBUG MyThread:34 - Ship is loaded
+log4j-1.2.17.jar2019-05-06 21:17:08 DEBUG MyThread:78 - Ship leaved doc
+log4j-1.2.17.jar2019-05-06 21:17:10 DEBUG MyThread:34 - Ship is loaded
+log4j-1.2.17.jar2019-05-06 21:17:10 DEBUG MyThread:78 - Ship leaved doc
+log4j-1.2.17.jar2019-05-06 21:17:11 DEBUG MyThread:34 - Ship is loaded
+log4j-1.2.17.jar2019-05-06 21:17:11 DEBUG MyThread:78 - Ship leaved doc
+log4j-1.2.17.jar2019-05-06 21:17:12 DEBUG MyThread:45 - Ship is unloaded
+log4j-1.2.17.jar2019-05-06 21:17:12 DEBUG MyThread:27 - Start load ship
+log4j-1.2.17.jar2019-05-06 21:17:19 DEBUG MyThread:34 - Ship is loaded
+log4j-1.2.17.jar2019-05-06 21:17:20 DEBUG MyThread:78 - Ship leaved doc
+log4j-1.2.17.jar
