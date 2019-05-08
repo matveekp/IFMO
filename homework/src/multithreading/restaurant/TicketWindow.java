@@ -24,4 +24,8 @@ public class TicketWindow {
 
     }
 
+    public int getSize(){
+        return queue.size();
+    }
+
 }
