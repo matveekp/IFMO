@@ -36,6 +36,10 @@ public class ComparatorExample {
         managers.sort(byCompany);
         System.out.println(managers);
 
+        Comparator<Manager> myOwn = Comparator.comparing(Manager::getAge).thenComparing(Manager::getName);
+        managers.sort(myOwn);
+        System.out.println(managers);
+
 
 
     }

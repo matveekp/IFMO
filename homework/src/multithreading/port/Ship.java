@@ -7,8 +7,6 @@ public class Ship {
     private int maxWeight;
     private int currentWeight;
     private String name;
-    private Dock dock;
-
 
     public Ship(int maxWeight, int currentWeight, String name) {
         this.maxWeight = maxWeight;

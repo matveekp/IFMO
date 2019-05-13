@@ -1,24 +1,25 @@
 package multithreading.restaurant;
 
 public class Visitor {
+
+    private int id = 0;
     private String name;
 
-    public Visitor(String name) {
+
+    public Visitor(String name, int id) {
         this.name = name;
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getId() {
+        return id;
     }
 
-    @Override
-    public String toString() {
-        return "Visitor{" +
-                "name='" + name + '\'' +
-                '}';
-    }
+
+
+
 }
