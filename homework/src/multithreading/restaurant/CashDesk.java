@@ -1,16 +1,17 @@
 package multithreading.restaurant;
 
+import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class CashDesk implements Runnable{
 
-    private LinkedBlockingQueue<Visitor> queue;
+    private LinkedBlockingDeque<Visitor> queue;
     private int id;
 
     public CashDesk(int id){
         this.id = id;
-        this.queue = new LinkedBlockingQueue<>();
+        this.queue = new LinkedBlockingDeque<>();
     }
 
     public int getId() {
@@ -18,13 +19,13 @@ public class CashDesk implements Runnable{
     }
 
     public void addVisitor(Visitor visitor) {
-        try {
-            queue.put(visitor);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
+            queue.addLast(visitor);
     }
+
+    public Visitor removeVisitor() {
+        return queue.pollLast();
+    }
+
 
     public int getSize(){
         return queue.size();
