@@ -21,32 +21,10 @@ public class Restaurant {
         TicketWindow ticketWindow2 = new TicketWindow(2);
         TicketWindow ticketWindow3 = new TicketWindow(3);
 
-        new Thread(new MyRestarauntThread(visitor1));
-        new Thread(new MyRestarauntThread(visitor2));
-        new Thread(new MyRestarauntThread(visitor3));
-        new Thread(new MyRestarauntThread(visitor4));
-        new Thread(new MyRestarauntThread(visitor5));
-        new Thread(new MyRestarauntThread(visitor6));
-        new Thread(new MyRestarauntThread(visitor7));
-        new Thread(new MyRestarauntThread(visitor8));
-        new Thread(new MyRestarauntThread(visitor9));
+
 
 
 
     }
 
-}
-
-class MyRestarauntThread implements Runnable {
-
-    private Visitor visitor;
-
-    public MyRestarauntThread(Visitor visitor) {
-        this.visitor = visitor;
-    }
-
-    @Override
-    public void run() {
-
-    }
 }

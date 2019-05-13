@@ -158,7 +158,7 @@ public class Server {
 
         private void writeData(SocketChannel channel, SelectionKey key) {
             //записываем данные из буфера
-            channel.write(byteBuffer);
+           // channel.write(byteBuffer);
             //готовим для следующей записи
             byteBuffer.rewind();
 

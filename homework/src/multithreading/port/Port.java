@@ -10,7 +10,7 @@ public class Port {
     private static final Logger LOGGER = Logger.getLogger(MyThread.class);
 
 
-    public Dock getFreeDock(){
+    public Dock getFreeDock() {
 
         for (Dock dock : dockList) {
             if (dock.isFree())
@@ -18,7 +18,7 @@ public class Port {
             else return getFreeDock();
         }
 
-       return getFreeDock();
+        return getFreeDock();
     }
 
     public void addDock(Dock dock){

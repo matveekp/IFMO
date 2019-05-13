@@ -5886,4 +5886,39 @@ log4j-1.2.17.jar2019-05-06 21:37:34 DEBUG MyThread:76 - Ship cargoShip3 leaved d
 log4j-1.2.17.jar2019-05-06 21:37:35 DEBUG MyThread:27 - Start load ship
 log4j-1.2.17.jar2019-05-06 21:37:41 DEBUG MyThread:34 - Ship is loaded
 log4j-1.2.17.jar2019-05-06 21:37:42 DEBUG MyThread:76 - Ship cargoShip2 leaved doc
+log4j-1.2.17.jar2019-05-13 10:39:25 DEBUG MyThread:50 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-13 10:39:25 DEBUG MyThread:50 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-13 10:39:25 DEBUG MyThread:50 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-13 10:39:25 DEBUG MyThread:50 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-13 10:39:25 DEBUG MyThread:57 - Ship cargoShip1 is going to doc
+log4j-1.2.17.jar2019-05-13 10:39:26 DEBUG MyThread:39 - Start unload ship
+log4j-1.2.17.jar2019-05-13 10:39:28 DEBUG MyThread:45 - Ship is unloaded
+log4j-1.2.17.jar2019-05-13 10:39:28 DEBUG MyThread:27 - Start load ship
+log4j-1.2.17.jar2019-05-13 10:39:31 DEBUG MyThread:34 - Ship is loaded
+log4j-1.2.17.jar2019-05-13 10:39:32 DEBUG MyThread:57 - Ship cargoShip2 is going to doc
+log4j-1.2.17.jar2019-05-13 10:39:32 DEBUG MyThread:76 - Ship cargoShip1 leaved doc
+log4j-1.2.17.jar2019-05-13 10:39:33 DEBUG MyThread:27 - Start load ship
+log4j-1.2.17.jar2019-05-13 10:39:39 DEBUG MyThread:34 - Ship is loaded
+log4j-1.2.17.jar2019-05-13 10:39:40 DEBUG MyThread:57 - Ship cargoShip3 is going to doc
+log4j-1.2.17.jar2019-05-13 10:39:40 DEBUG MyThread:76 - Ship cargoShip2 leaved doc
+log4j-1.2.17.jar2019-05-13 10:39:41 DEBUG MyThread:39 - Start unload ship
+log4j-1.2.17.jar2019-05-13 10:41:11 DEBUG MyThread:50 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-13 10:41:11 DEBUG MyThread:50 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-13 10:41:11 DEBUG MyThread:50 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-13 10:41:11 DEBUG MyThread:50 - Starting ThreadMyThread
+log4j-1.2.17.jar2019-05-13 10:41:11 DEBUG MyThread:57 - Ship cargoShip1 is going to doc
+log4j-1.2.17.jar2019-05-13 10:41:12 DEBUG MyThread:39 - Start unload ship
+log4j-1.2.17.jar2019-05-13 10:41:14 DEBUG MyThread:45 - Ship is unloaded
+log4j-1.2.17.jar2019-05-13 10:41:14 DEBUG MyThread:27 - Start load ship
+log4j-1.2.17.jar2019-05-13 10:41:17 DEBUG MyThread:34 - Ship is loaded
+log4j-1.2.17.jar2019-05-13 10:41:18 DEBUG MyThread:57 - Ship cargoShip4 is going to doc
+log4j-1.2.17.jar2019-05-13 10:41:18 DEBUG MyThread:76 - Ship cargoShip1 leaved doc
+log4j-1.2.17.jar2019-05-13 10:41:19 DEBUG MyThread:39 - Start unload ship
+log4j-1.2.17.jar2019-05-13 10:41:22 DEBUG MyThread:45 - Ship is unloaded
+log4j-1.2.17.jar2019-05-13 10:41:22 DEBUG MyThread:27 - Start load ship
+log4j-1.2.17.jar2019-05-13 10:41:25 DEBUG MyThread:34 - Ship is loaded
+log4j-1.2.17.jar2019-05-13 10:41:26 DEBUG MyThread:57 - Ship cargoShip2 is going to doc
+log4j-1.2.17.jar2019-05-13 10:41:26 DEBUG MyThread:76 - Ship cargoShip4 leaved doc
+log4j-1.2.17.jar2019-05-13 10:41:27 DEBUG MyThread:27 - Start load ship
+log4j-1.2.17.jar2019-05-13 10:41:33 DEBUG MyThread:34 - Ship is loaded
 log4j-1.2.17.jar

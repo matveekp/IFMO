@@ -10,7 +10,7 @@ public class Main {
 
         Dock dock1 = new Dock(1, port);
         Dock dock2 = new Dock(2, port);
-        Dock dock3 = new Dock(2, port);
+        Dock dock3 = new Dock(3, port);
 
         port.addDock(dock1);
         port.addDock(dock2);
@@ -25,11 +25,8 @@ public class Main {
 
 
         new Thread(new MyThread(ship1, port)).start();
-        Thread.sleep(500);
         new Thread(new MyThread(ship2, port)).start();
-        Thread.sleep(500);
         new Thread(new MyThread(ship3, port)).start();
-        Thread.sleep(500);
         new Thread(new MyThread(ship4, port)).start();
 
     }
