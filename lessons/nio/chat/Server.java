@@ -156,7 +156,7 @@ public class Server {
 
         }
 
-        private void writeData(SocketChannel channel, SelectionKey key) {
+        private void writeData(SocketChannel channel, SelectionKey key) throws IOException {
             //записываем данные из буфера
             channel.write(byteBuffer);
             //готовим для следующей записи
