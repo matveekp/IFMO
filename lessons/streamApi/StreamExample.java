@@ -113,7 +113,7 @@ public class StreamExample {
 }
 
 
-class User {
+class  User {
     private String login;
     private int age;
 

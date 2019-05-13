@@ -36,12 +36,12 @@ public class Restaurant {
     }
 
 
-    public static CashDesk getRandomCashDesk(List<CashDesk> list) {
+    private static CashDesk getRandomCashDesk(List<CashDesk> list) {
         return list.get(new Random().nextInt(list.size()));
     }
 
 
-    public static void sortQueues() {
+    protected static void sortQueues() {
 
         if (cashDeskList.size() >= 2) {
             for (int i = 0; i < cashDeskList.size() - 1; i++) {
