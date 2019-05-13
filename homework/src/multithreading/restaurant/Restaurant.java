@@ -11,10 +11,10 @@ public class Restaurant {
 
 
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args)  {
 
         //Создаем посетителей
-        for (int i = 1; i <= 250; i++) {
+        for (int i = 1; i <= 15; i++) {
             visitorList.add(new Visitor("visitor" + i, i));
         }
 
@@ -28,16 +28,10 @@ public class Restaurant {
             getRandomCashDesk(cashDeskList).addVisitor(visitor);
         }
 
-        // Кассы открываются
+        // Кассы начинают работу
         for (CashDesk cashDesk : cashDeskList) {
             new Thread(cashDesk).start();
         }
-
-
-
-
-
-
 
     }
 
@@ -50,40 +44,19 @@ public class Restaurant {
     public static void sortQueues() {
 
         if (cashDeskList.size() >= 2) {
-
             for (int i = 0; i < cashDeskList.size() - 1; i++) {
-
                 if (cashDeskList.get(i).getSize() + 1 < cashDeskList.get(i + 1).getSize()) {
                     cashDeskList.get(i).addVisitor(cashDeskList.get(i + 1).removeVisitor());
-                    System.out.println("Посетитель с id " + cashDeskList.get(i + 1).getId() + " перешел из очереди " + cashDeskList.get(i).getId() + " в очередь " + cashDeskList.get(i + 1).getId());
+//                    System.out.println("Посетитель с id " + cashDeskList.get(i + 1).getId() + " перешел из очереди " + cashDeskList.get(i).getId() + " в очередь " + cashDeskList.get(i + 1).getId());
                 }
 
-                if (cashDeskList.get(i).getSize() + 1 > cashDeskList.get(i + 1).getSize()) {
+                else if (cashDeskList.get(i).getSize()  > cashDeskList.get(i + 1).getSize() +1) {
                     cashDeskList.get(i + 1).addVisitor(cashDeskList.get(i).removeVisitor());
-                    System.out.println("Посетитель с id " + cashDeskList.get(i).getId() + " перешел из очереди " + cashDeskList.get(i + 1).getId() + " в очередь " + cashDeskList.get(i).getId());
+//                    System.out.println("Посетитель с id " + cashDeskList.get(i).getId() + " перешел из очереди " + cashDeskList.get(i + 1).getId() + " в очередь " + cashDeskList.get(i).getId());
                 }
-
-
             }
-
         } else return;
 
-    }
-
-    public List<Visitor> getVisitorList() {
-        return visitorList;
-    }
-
-    public void addToVisitorList(Visitor visitor) {
-       visitorList.add(visitor);
-    }
-
-    public List<CashDesk> getCashDeskList() {
-        return cashDeskList;
-    }
-
-    public void addToCashDeskList(CashDesk cashDesk) {
-        cashDeskList.add(cashDesk);
     }
 }
 
