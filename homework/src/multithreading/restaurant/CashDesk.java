@@ -1,15 +1,14 @@
 package multithreading.restaurant;
 
-import java.util.Random;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class TicketWindow implements Runnable{
+public class CashDesk implements Runnable{
 
-    LinkedBlockingQueue<Visitor> queue;
+    private LinkedBlockingQueue<Visitor> queue;
     private int id;
 
-    public TicketWindow(int id){
+    public CashDesk(int id){
         this.id = id;
         this.queue = new LinkedBlockingQueue<>();
     }
@@ -36,16 +35,21 @@ public class TicketWindow implements Runnable{
     public void run() {
         try {
 
+            while (true) {
 
             if (!queue.isEmpty()) {
-
                 Visitor visitor = queue.take();
-                System.out.println("Получен заказ для посетителя с id " + visitor.getId());
+                System.out.println("Касса № " + id + " Получен заказ для посетителя с id " + visitor.getId());
                 Thread.sleep(ThreadLocalRandom.current().nextInt(1500, 3000));
-                System.out.println("Посетитель с id " + visitor.getId() + " получил свой заказ");
-
+                System.out.println("Заказ готов. Посетитель с id " + visitor.getId() + " получил свой заказ");
+            }
+            else {
+                System.out.println("В кассу № " + id + " нет посетителей...");
+                Thread.sleep(1000);
+            }
 
             }
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
