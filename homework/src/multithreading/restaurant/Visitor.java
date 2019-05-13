@@ -1,7 +1,5 @@
 package multithreading.restaurant;
 
-import java.util.List;
-
 public class Visitor {
 
     private int id = 0;

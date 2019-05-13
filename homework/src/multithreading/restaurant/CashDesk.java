@@ -35,17 +35,22 @@ public class CashDesk implements Runnable{
     public void run() {
         try {
 
-            while (true) {
+            int tryCounts = 0;
+
+            while (tryCounts != 10) {
 
             if (!queue.isEmpty()) {
+                tryCounts = 0;
+                System.out.println("\nКасса № " + id + " . Очередь " + queue.size() + " человек.");
                 Visitor visitor = queue.take();
                 System.out.println("Касса № " + id + " Получен заказ для посетителя с id " + visitor.getId());
-                Thread.sleep(ThreadLocalRandom.current().nextInt(1500, 3000));
-                System.out.println("Заказ готов. Посетитель с id " + visitor.getId() + " получил свой заказ");
+                Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 5000));
+                System.out.println("Заказ готов. Посетитель с id " + visitor.getId() + " получил свой заказ\n");
             }
             else {
-                System.out.println("В кассу № " + id + " нет посетителей...");
-                Thread.sleep(1000);
+                System.out.println("\nВ кассу № " + id + " нет посетителей...\n");
+                Thread.sleep(500);
+                tryCounts++;
             }
 
             }
