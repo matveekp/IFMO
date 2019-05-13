@@ -1,7 +1,6 @@
 package multithreading.restaurant;
 
 import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class CashDesk implements Runnable{
