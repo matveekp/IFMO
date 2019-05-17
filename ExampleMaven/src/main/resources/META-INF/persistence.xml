@@ -6,7 +6,12 @@
              http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
     <persistence-unit name="OrmExample" transaction-type="RESOURCE_LOCAL">
-        <class>entity.UserTable</class>
+        <!--<class>entity.UserTable</class>-->
+
+
+        <class>entity.Book</class>
+        <class>entity.Article</class>
+        <class>entity.Author</class>
 
         <properties>
             <!--строка подключения к бд-->
