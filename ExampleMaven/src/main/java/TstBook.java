@@ -5,6 +5,7 @@ import specification.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Random;
@@ -91,6 +92,26 @@ public class TstBook {
 
             System.out.println(book.getTitle());
         }
+
+
+        System.out.println("---------------------------------------");
+        List<Specification> specifications = new ArrayList<Specification>();
+
+        specifications.add(new BookByLastYear());
+        specifications.add(new BookByPageCount(50));
+
+
+                                                // IS NOT WORKING :
+
+//        List<Book> booksDoubleSelect = bookRepository.getBySpecification(new BooksBySeveralSpecs(specifications));
+//
+//        for (Book book : booksDoubleSelect) {
+//            System.out.println(book.getTitle());
+//        }
+
+        System.out.println("------------------------------");
+
+
 
         entityManager.close();
         factory.close();
