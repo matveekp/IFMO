@@ -12,8 +12,6 @@ public interface Repository<T, PK> {
     void delete(PK pk); // удаление записи в бд по первичному ключу
     T getByPk(PK pk); // получение записи по идентификатору (PK)
     List<T> getAll(); // получение всех записей
-    // TODO: add List<T> getBySpecification(Specification spec)
-
     List<T> getBySpecification(Specification spec); // передаем объект критерия поиска
 
 

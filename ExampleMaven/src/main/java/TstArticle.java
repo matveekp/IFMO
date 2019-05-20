@@ -4,7 +4,9 @@ import entity.Author;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 public class TstArticle {
 
@@ -23,11 +25,13 @@ public class TstArticle {
         for (int i = 1; i < 4; i++) {
             Article article = new Article();
             article.setTitle("Статья " + i);
+
+
+
+
             article.setAuthor(author);
 
-
             entityManager.persist(article);
-
             entityManager.persist(author);
 
         }
@@ -39,17 +43,17 @@ public class TstArticle {
         entityManager.getTransaction().commit();
 
 
-
-
-        Author author1 = entityManager.find(Author.class, 252);
-        System.out.println(author1.getName());
-
-
-        List<Article> articles = entityManager.find(Author.class, 252).getArticles();
-
-        for (Article article : articles) {
-            System.out.println(article.getTitle());
-        }
+//
+//
+//        Author author1 = entityManager.find(Author.class, 252);
+//        System.out.println(author1.getName());
+//
+//
+//        List<Article> articles = entityManager.find(Author.class, 252).getArticles();
+//
+//        for (Article article : articles) {
+//            System.out.println(article.getTitle());
+//        }
 
 
 

@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.Calendar;
 
 
 @Entity
@@ -12,6 +13,8 @@ public class Article {
     private int id;
     private String title;
     private Author author;
+
+
 
     public int getId() {
         return id;
@@ -36,4 +39,8 @@ public class Article {
     public void setAuthor(Author author) {
         this.author = author;
     }
+
+
+
+
 }
