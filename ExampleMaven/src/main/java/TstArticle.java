@@ -18,7 +18,7 @@ public class TstArticle {
         entityManager.getTransaction().begin();
 
         Author author = new Author();
-        author.setName("Bob");
+        author.setName("John");
 
 //        entityManager.persist(author);
 
@@ -26,10 +26,9 @@ public class TstArticle {
             Article article = new Article();
             article.setTitle("Статья " + i);
 
-
-
-
             article.setAuthor(author);
+
+            author.getArticles().add(article);
 
             entityManager.persist(article);
             entityManager.persist(author);
@@ -44,21 +43,26 @@ public class TstArticle {
 
 
 //
-//
-//        Author author1 = entityManager.find(Author.class, 252);
-//        System.out.println(author1.getName());
-//
-//
-//        List<Article> articles = entityManager.find(Author.class, 252).getArticles();
-//
-//        for (Article article : articles) {
-//            System.out.println(article.getTitle());
-//        }
+
+        Author author1 = entityManager.find(Author.class, 51);
+        System.out.println(author1.getName());
+
+
+        List<Article> articles = entityManager.find(Author.class, 1651).getArticles();
+
+        for (Article article : articles) {
+         //   System.out.println(article.getTitle());
+            article.setTitle("Новое название: " +article.getId());
+        }
 
 
 
 
+        entityManager.getTransaction().begin();
 
+        entityManager.merge(author);
+
+        entityManager.getTransaction().commit();
 
 
 

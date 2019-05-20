@@ -9,11 +9,13 @@ import java.util.Calendar;
 public class Article {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String title;
-    private Author author;
 
+    @ManyToOne
+    @JoinColumn(name = "parent_id", nullable = false)
+    private Author author;
 
 
     public int getId() {
@@ -39,8 +41,6 @@ public class Article {
     public void setAuthor(Author author) {
         this.author = author;
     }
-
-
 
 
 }

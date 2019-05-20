@@ -12,6 +12,9 @@
         <class>entity.Book</class>
         <class>entity.Article</class>
         <class>entity.Author</class>
+        <class>entity.Group</class>
+        <class>entity.Student</class>
+
 
         <properties>
             <!--строка подключения к бд-->
