@@ -13,6 +13,7 @@ public class BookByDate extends AbstractSpecification<Book> {
 
     public BookByDate(Calendar calendar) {
         this.calendar = calendar;
+
     }
 
     public Predicate toPredicate(Root<Book> bookRoot, CriteriaBuilder criteriaBuilder) {
