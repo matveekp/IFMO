@@ -39,7 +39,7 @@
 
             -->
             <property name="eclipselink.ddl-generation"
-                      value="create-or-extend-tables"/>
+                      value="drop-and-create"/>
 
 
 
