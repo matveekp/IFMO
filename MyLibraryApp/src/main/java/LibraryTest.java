@@ -9,7 +9,7 @@ public class LibraryTest {
     public static void main(String[] args) {
 
         EntityManagerFactory entityManagerFactory =
-                Persistence.createEntityManagerFactory("OrmExample");
+                Persistence.createEntityManagerFactory("MyLibrary");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
 
