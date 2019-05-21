@@ -9,7 +9,7 @@
         <!--<class>entity.UserTable</class>-->
 
 
-        <class>entity.Library</class>
+        <class>LibraryTest</class>
         <class>entity.Filial</class>
         <class>entity.Book</class>
         <class>entity.Author</class>
