@@ -8,13 +8,13 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 public class BooksByFilial extends AbstractSpecification<Book> {
-    private int id;
+    private String name;
 
-    public BooksByFilial(int id) {
-        this.id = id;
+    public BooksByFilial(String name) {
+        this.name = name;
     }
 
     public Predicate toPredicate(Root<Book> bookRoot, CriteriaBuilder criteriaBuilder) {
-        return criteriaBuilder.equal(bookRoot.<String>get("filial"), filial);
+        return criteriaBuilder.equal(bookRoot.<String>get("filial"), name);
     }
 }

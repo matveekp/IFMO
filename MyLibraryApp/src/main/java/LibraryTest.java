@@ -220,7 +220,7 @@ public class LibraryTest {
 
 
 
-        Specification<Book> multiSpec = new TwoSpecification<Book>(new BooksByFilial(filial1), new BookByTitle("Книга 1"));
+        Specification<Book> multiSpec = new TwoSpecification<Book>(new BooksByFilial("Филиал 1"), new BookByTitle("Книга 1"));
 
         List<Book> bookList = bookRepository.getBySpecification(multiSpec);
 

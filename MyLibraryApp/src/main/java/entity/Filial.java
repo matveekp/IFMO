@@ -24,20 +24,6 @@ public class Filial {
     private List<Book> books = new ArrayList<Book>();
 
 
-//    @OneToOne(mappedBy = "filial",
-//            cascade = CascadeType.ALL,
-//            fetch = FetchType.LAZY,
-//            orphanRemoval = true)
-//    private List<Book> books = new ArrayList<Book>();
-
-//    public List<Book> getBooks() {
-//        return books;
-//    }
-//
-//    public void setBooks(List<Book> books) {
-//        this.books = books;
-//    }
-
 
     private String name;
 
