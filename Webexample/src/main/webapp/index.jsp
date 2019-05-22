@@ -1,5 +1,28 @@
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+
+
+<head>
+    <%@ page contentType="text/html;charset=utf-8"%>
+    <title>Title</title>
+
+</head>
+
 <body>
-<h2>Hello World!</h2>
+
+
+    <a href="addNews">Добавить новость</a>
+
+    <c:forEach items="${allnews}" var="item">
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>
+        <p>${item.newsDate}</p>
+        <a href="c:url value = "readnews?id=${item.id}"/>">Подробнее</a>
+
+    </c:forEach>
+
+
+
 </body>
+
 </html>
