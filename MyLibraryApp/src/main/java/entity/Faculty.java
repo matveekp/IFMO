@@ -14,9 +14,9 @@ public class Faculty {
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
-    @JoinTable(name = "faculty_book",
-            joinColumns = @JoinColumn(name = "faculty_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_id"))
+    @JoinTable(name = "faculty_book", //отвечает за формирование временной таблицы
+            joinColumns = @JoinColumn(name = "faculty_id"),  // связь с текущей таблицей
+            inverseJoinColumns = @JoinColumn (name = "book_id"))  // связь с другой таблицей
     private List<Book> books = new ArrayList<Book>();
 
 
@@ -46,4 +46,6 @@ public class Faculty {
     public void setBooks(List<Book> books) {
         this.books = books;
     }
+
+
 }

@@ -15,10 +15,10 @@ public class Book {
     private int illustrationCount;
     private double cost;
 
-    private String name;
+    private String title;
 
 //    @OneToOne
-//    @JoinColumn(name = "faculty_id")
+//    @JoinColumn(title = "faculty_id")
 //    private Faculty faculty;
 
     @ManyToOne
@@ -37,6 +37,10 @@ public class Book {
 
     @ManyToMany(mappedBy = "books")
     private List<Filial> filials = new ArrayList<Filial>();
+
+
+    @ManyToMany(mappedBy = "books")
+    private List<Faculty> faculties = new ArrayList<Faculty>();
 
 
 
@@ -89,12 +93,12 @@ public class Book {
         this.cost = cost;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 
@@ -114,5 +118,11 @@ public class Book {
         this.author = author;
     }
 
+    public List<Faculty> getFaculties() {
+        return faculties;
+    }
 
+    public void setFaculties(List<Faculty> faculties) {
+        this.faculties = faculties;
+    }
 }

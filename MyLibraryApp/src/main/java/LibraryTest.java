@@ -1,8 +1,11 @@
 import entity.*;
+import repository.BookRepository;
+import specification.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class LibraryTest {
 
@@ -33,8 +36,8 @@ public class LibraryTest {
 //----------------------------------------------
 //        Faculty faculty1 = new Faculty();
 //        Faculty faculty2 = new Faculty();
-//        faculty1.setName("Факультет 1");
-//        faculty2.setName("Факультет 2");
+//        faculty1.setTitle("Факультет 1");
+//        faculty2.setTitle("Факультет 2");
 //
 //
 //
@@ -64,7 +67,7 @@ public class LibraryTest {
         book1.setAuthor(author1);
         book1.setCost(1000.00);
         book1.setPublisher(publisher1);
-        book1.setName("Книга 1");
+        book1.setTitle("Книга 1");
         book1.setIllustrationCount(5);
         book1.getFilials().add(filial1);
 ////        book1.setFaculty(faculty1);
@@ -75,7 +78,7 @@ public class LibraryTest {
         book2.setAuthor(author1);
         book2.setCost(800.00);
         book2.setPublisher(publisher1);
-        book2.setName("Книга 2");
+        book2.setTitle("Книга 2");
         book2.setIllustrationCount(8);
         book2.getFilials().add(filial2);
 ////        book1.setFaculty(faculty1);
@@ -86,7 +89,7 @@ public class LibraryTest {
         book3.setAuthor(author2);
         book3.setCost(6000.00);
         book3.setPublisher(publisher2);
-        book3.setName("Книга 3");
+        book3.setTitle("Книга 3");
         book3.setIllustrationCount(27);
         book3.getFilials().add(filial2);
 ////        book1.setFaculty(faculty2);
@@ -125,6 +128,41 @@ public class LibraryTest {
         publisher1.getBooks().add(book2);
         publisher2.getBooks().add(book3);
 
+        Faculty faculty1 = new Faculty();
+        Faculty faculty2 = new Faculty();
+        Faculty faculty3 = new Faculty();
+        Faculty faculty4 = new Faculty();
+
+
+
+        faculty1.getBooks().add(book1);
+
+        faculty2.getBooks().add(book1);
+        faculty2.getBooks().add(book2);
+
+        faculty3.getBooks().add(book1);
+        faculty3.getBooks().add(book2);
+        faculty3.getBooks().add(book3);
+
+        faculty4.getBooks().add(book1);
+        faculty4.getBooks().add(book3);
+
+
+        book1.getFaculties().add(faculty1);
+        book1.getFaculties().add(faculty2);
+        book1.getFaculties().add(faculty3);
+        book1.getFaculties().add(faculty4);
+
+        book2.getFaculties().add(faculty2);
+        book2.getFaculties().add(faculty3);
+
+        book3.getFaculties().add(faculty3);
+        book3.getFaculties().add(faculty4);
+
+
+
+
+
 
 
 
@@ -151,6 +189,11 @@ public class LibraryTest {
         entityManager.persist(student1);
         entityManager.persist(student2);
 
+        entityManager.persist(faculty1);
+        entityManager.persist(faculty2);
+        entityManager.persist(faculty3);
+        entityManager.persist(faculty4);
+
 
 
 
@@ -159,8 +202,42 @@ public class LibraryTest {
         entityManager.getTransaction().commit();
 
 
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------");
+
+        BookRepository bookRepository = new BookRepository(entityManager);
+        for (Book book : bookRepository.getAll()) {
+            System.out.println(book.getId() + " " + book.getTitle() + " " + book.getPageCount());
+        }
+
+
+
+
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------");
+
+
+
+        Specification<Book> multiSpec = new TwoSpecification<Book>(new BooksByFilial(filial1), new BookByTitle("Книга 1"));
+
+        List<Book> bookList = bookRepository.getBySpecification(multiSpec);
+
+        for (Book book : bookList) {
+            System.out.println(book.getTitle());
+        }
+
+
+
+
         entityManager.close();
         entityManagerFactory.close();
+
+
+
+
+
     }
 
 
