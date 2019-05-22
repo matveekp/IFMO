@@ -16,6 +16,13 @@ public class Filial {
     @JoinColumn(name = "library_ID", nullable = false)
     private Library library;
 
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @JoinTable(name = "filial_book", //отвечает за формирование временной таблицы
+            joinColumns = @JoinColumn(name = "filial_id"),  // связь с текущей таблицей
+            inverseJoinColumns = @JoinColumn (name = "book_id"))  // связь с другой таблицей
+    private List<Book> books = new ArrayList<Book>();
+
 
 //    @OneToOne(mappedBy = "filial",
 //            cascade = CascadeType.ALL,
@@ -57,5 +64,13 @@ public class Filial {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }

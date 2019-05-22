@@ -66,6 +66,7 @@ public class LibraryTest {
         book1.setPublisher(publisher1);
         book1.setName("Книга 1");
         book1.setIllustrationCount(5);
+        book1.getFilials().add(filial1);
 ////        book1.setFaculty(faculty1);
 //
 //
@@ -76,40 +77,48 @@ public class LibraryTest {
         book2.setPublisher(publisher1);
         book2.setName("Книга 2");
         book2.setIllustrationCount(8);
+        book2.getFilials().add(filial2);
 ////        book1.setFaculty(faculty1);
 //
 //
         Book book3 = new Book();
         book3.setPageCount(400);
-        book3.setAuthor(author1);
+        book3.setAuthor(author2);
         book3.setCost(6000.00);
         book3.setPublisher(publisher2);
         book3.setName("Книга 3");
         book3.setIllustrationCount(27);
+        book3.getFilials().add(filial2);
 ////        book1.setFaculty(faculty2);
 //
 //
+
+        filial1.getBooks().add(book1);
+        filial2.getBooks().add(book2);
+        filial2.getBooks().add(book3);
+
+
+
+        Student student1 = new Student();
+        student1.setName("Студент 1");
+        student1.getBooks().add(book1);
+        student1.getBooks().add(book3);
+
+        Student student2 = new Student();
+        student2.setName("Студент 2");
+        student2.getBooks().add(book2);
+
+
+//
+//
+//
+//
 ////----------------------------------------
 //
-//
-//
-//
-//
-////----------------------------------------
-//
-//
-//
-//        Student student1 = new Student();
-//        student1.setName("Студент 1");
-//
-//        Student student2 = new Student();
-//        student2.setName("Студент 2");
-//
-//
-//
-//
-////----------------------------------------
-//
+
+        author1.getBooks().add(book1);
+        author1.getBooks().add(book2);
+        author2.getBooks().add(book3);
 
 
         publisher1.getBooks().add(book1);
@@ -118,7 +127,12 @@ public class LibraryTest {
 
 
 
+
+
+
         entityManager.getTransaction().begin();
+
+
 
         entityManager.persist(library);
         entityManager.persist(filial1);
@@ -133,6 +147,13 @@ public class LibraryTest {
 
         entityManager.persist(publisher1);
         entityManager.persist(publisher2);
+
+        entityManager.persist(student1);
+        entityManager.persist(student2);
+
+
+
+
 
 
         entityManager.getTransaction().commit();

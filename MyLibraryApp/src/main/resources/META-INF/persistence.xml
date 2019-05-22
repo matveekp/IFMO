@@ -14,8 +14,8 @@
         <class>entity.Book</class>
         <class>entity.Author</class>
         <class>entity.Publisher</class>
-        <!--<class>entity.Student</class>-->
-        <!--<class>entity.Faculty</class>-->
+        <class>entity.Student</class>
+        <class>entity.Faculty</class>
 
 
         <properties>

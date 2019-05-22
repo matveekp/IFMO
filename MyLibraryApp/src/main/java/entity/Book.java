@@ -1,6 +1,8 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -27,27 +29,33 @@ public class Book {
     @JoinColumn(name = "publisher_id")
     private Publisher publisher;
 
+    @ManyToMany(mappedBy = "books")
+    private List<Student> students = new ArrayList<Student>();
 
 
-//    @OneToOne
-//    @JoinColumn(name = "filial_id")
-//    private Filial filial;
 
-//    public Faculty getFaculty() {
-//        return faculty;
-//    }
-//
-//    public void setFaculty(Faculty faculty) {
-//        this.faculty = faculty;
-//    }
-//
-//    public Filial getFilial() {
-//        return filial;
-//    }
-//
-//    public void setFilial(Filial filial) {
-//        this.filial = filial;
-//    }
+
+    @ManyToMany(mappedBy = "books")
+    private List<Filial> filials = new ArrayList<Filial>();
+
+
+
+    public List<Filial> getFilials() {
+        return filials;
+    }
+
+    public void setFilials(List<Filial> filials) {
+        this.filials = filials;
+    }
+
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
 
     public int getId() {
         return id;

@@ -15,8 +15,11 @@ public class Student {
 
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "books_id")
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @JoinTable(name = "student_book", //отвечает за формирование временной таблицы
+            joinColumns = @JoinColumn(name = "student_id"),  // связь с текущей таблицей
+            inverseJoinColumns = @JoinColumn (name = "book_id"))  // связь с другой таблицей
     private List<Book> books = new ArrayList<Book>();
 
     public int getId() {
