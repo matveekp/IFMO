@@ -11,9 +11,7 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "library_id")
-    private Library library;
+
 
     private String name;
 
@@ -27,14 +25,6 @@ public class Student {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Library getLibrary() {
-        return library;
-    }
-
-    public void setLibrary(Library library) {
-        this.library = library;
     }
 
     public String getName() {

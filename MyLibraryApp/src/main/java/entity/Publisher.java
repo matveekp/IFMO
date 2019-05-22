@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -10,9 +11,12 @@ public class Publisher {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "library_id")
-    private Library library;
+    @OneToMany(mappedBy = "publisher",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            orphanRemoval = true)
+    private List<Book> books;
+
 
     private String name;
 
@@ -24,12 +28,12 @@ public class Publisher {
         this.id = id;
     }
 
-    public Library getLibrary() {
-        return library;
+    public List<Book> getBooks() {
+        return books;
     }
 
-    public void setLibrary(Library library) {
-        this.library = library;
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     public String getName() {

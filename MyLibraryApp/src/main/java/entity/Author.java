@@ -20,10 +20,6 @@ public class Author {
             orphanRemoval = true)
     private List<Book> books = new ArrayList<Book>();
 
-    @ManyToOne
-    @JoinColumn(name = "library_id")
-    private Library library;
-
     public int getId() {
         return id;
     }
@@ -46,13 +42,5 @@ public class Author {
 
     public void setBooks(List<Book> books) {
         this.books = books;
-    }
-
-    public Library getLibrary() {
-        return library;
-    }
-
-    public void setLibrary(Library library) {
-        this.library = library;
     }
 }

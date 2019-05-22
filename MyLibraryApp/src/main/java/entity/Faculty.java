@@ -19,9 +19,6 @@ public class Faculty {
             inverseJoinColumns = @JoinColumn(name = "book_id"))
     private List<Book> books = new ArrayList<Book>();
 
-    @ManyToOne
-    @JoinColumn(name = "library_id")
-    private Library library;
 
     private String name;
 
@@ -33,13 +30,6 @@ public class Faculty {
         this.name = name;
     }
 
-    public Library getLibrary() {
-        return library;
-    }
-
-    public void setLibrary(Library library) {
-        this.library = library;
-    }
 
     public int getId() {
         return id;

@@ -12,15 +12,25 @@ public class Filial {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "library_id")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "library_ID", nullable = false)
     private Library library;
 
-    @OneToMany(mappedBy = "filial",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            orphanRemoval = true)
-    private List<Book> books = new ArrayList<Book>();
+
+//    @OneToOne(mappedBy = "filial",
+//            cascade = CascadeType.ALL,
+//            fetch = FetchType.LAZY,
+//            orphanRemoval = true)
+//    private List<Book> books = new ArrayList<Book>();
+
+//    public List<Book> getBooks() {
+//        return books;
+//    }
+//
+//    public void setBooks(List<Book> books) {
+//        this.books = books;
+//    }
+
 
     private String name;
 
@@ -40,13 +50,6 @@ public class Filial {
         this.library = library;
     }
 
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
 
     public String getName() {
         return name;

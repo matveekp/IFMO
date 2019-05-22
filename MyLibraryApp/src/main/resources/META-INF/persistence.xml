@@ -6,15 +6,16 @@
              http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
     <persistence-unit name="MyLibrary" transaction-type="RESOURCE_LOCAL">
-
-
-        <class>LibraryTest</class>
+        <class>entity.Library</class>
         <class>entity.Filial</class>
+
+
+
         <class>entity.Book</class>
         <class>entity.Author</class>
         <class>entity.Publisher</class>
-        <class>entity.Student</class>
-        <class>entity.Faculty</class>
+        <!--<class>entity.Student</class>-->
+        <!--<class>entity.Faculty</class>-->
 
 
         <properties>
@@ -38,7 +39,7 @@
 
             -->
             <property name="eclipselink.ddl-generation"
-                      value="drop-and-create"/>
+                      value="drop-and-create-tables"/>
 
 
 
