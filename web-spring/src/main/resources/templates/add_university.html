@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<h3>Форма добавления университета</h3>
+<!--указываем метод и куда пойдут данные-->
+
+<p th:if="${addInfo}">Университет <span  th:text="${addInfo}" style="color:red"></span>     добавлен</p>
+<!--Если в th:if данные не придут, то строчка не отобразится вообще-->
+
+<!--Т.е. если так, то университет добавлен будет всегда, а имя только если пришел аттрибут. Где if то и проверяется (в каком теге)-->
+<!--<p>Университет <span  th:if="${addInfo}" th:text="${addInfo}" style="color:red"></span>     добавлен</p>-->
+
+
+
+<form method="post" th:action="@{/university/add}" th:object="${university}">
+    <label>Введите название университета: <input th:field="*{universityName}" type="text"></label>
+    <p><input type ="submit" value="Добавить"></p>
+</form>
+
+<p><a href="/">На главную страницу</a></p>
+
+</body>
+</html>
