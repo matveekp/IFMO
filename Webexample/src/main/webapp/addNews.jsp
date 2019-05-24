@@ -4,7 +4,7 @@
 <head>
 
     <%@ page contentType="text/html;charset=utf-8"%>
-    <title>Title</title>
+    <title>Новостной портал. Добавьте новость</title>
 </head>
 
 <body>

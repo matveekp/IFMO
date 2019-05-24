@@ -42,8 +42,9 @@ public class News {
     }
 
     public String getNewsDate() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd");
-        return sdf.format(newsDate);
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return dateFormat.format(newsDate.getTime());
     }
 
     public void setNewsDate(Calendar newsDate) {

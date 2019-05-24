@@ -1,9 +1,11 @@
 package servlets;
 
+import entity.News;
 import repositories.NewsRepository;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,8 +27,15 @@ public class ReadNewsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
+        int id = Integer.parseInt(req.getParameter("id"));
         // to int , потом в newsrepostiory и передаем
+
+        News news = newsRepository.getById(id);
+
+        RequestDispatcher view = req.getRequestDispatcher("readnews.jsp");
+        req.setAttribute("news", news);
+        view.forward(req, resp);
+
 
     }
 }

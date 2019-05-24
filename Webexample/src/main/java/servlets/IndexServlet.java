@@ -31,13 +31,15 @@ public class IndexServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // этот метод вызывается сам программой
-        RequestDispatcher view = req.getRequestDispatcher("index.jsp");
+        System.out.println("Hello");
+        RequestDispatcher view = req.getRequestDispatcher("main.jsp");
         List<News> allnews = newsRepository.getAllNews();
+        System.out.println(allnews);
         req.setAttribute("allnews", allnews);
-
         view.forward(req, resp);
+    }
 
     }
 
 
-}
+
