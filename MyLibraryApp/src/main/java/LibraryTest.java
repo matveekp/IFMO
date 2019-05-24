@@ -211,6 +211,16 @@ public class LibraryTest {
             System.out.println(book.getId() + " " + book.getTitle() + " " + book.getPageCount());
         }
 
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------");
+
+        Specification<Book> bookByFilial = new BooksByFilial("Филилал 1");
+        List<Book> bookFilial = bookRepository.getBySpecification(bookByFilial);
+        for (Book book : bookFilial) {
+            System.out.println(book.getTitle());
+        }
+
 
 
 

@@ -43,7 +43,7 @@ public class News {
 
     public String getNewsDate() {
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         return dateFormat.format(newsDate.getTime());
     }
 
