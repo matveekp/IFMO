@@ -1,5 +1,7 @@
 import entity.*;
 import repository.BookRepository;
+import repository.FilialRepository;
+import repository.LibraryRepository;
 import specification.*;
 
 import javax.persistence.EntityManager;
@@ -15,6 +17,10 @@ public class LibraryTest {
                 Persistence.createEntityManagerFactory("MyLibrary");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
+
+        BookRepository bookRepository = new BookRepository(entityManager);
+        LibraryRepository libraryRepository = new LibraryRepository(entityManager);
+        FilialRepository filialRepository = new FilialRepository(entityManager);
 
 
 
@@ -96,6 +102,9 @@ public class LibraryTest {
 //
 //
 
+
+
+
         filial1.getBooks().add(book1);
         filial2.getBooks().add(book2);
         filial2.getBooks().add(book3);
@@ -163,6 +172,12 @@ public class LibraryTest {
 
 
 
+//        libraryRepository.add(library);
+//        filialRepository.add(filial1);
+//        filialRepository.add(filial2);
+//        bookRepository.add(book1);
+//        bookRepository.add(book2);
+//        bookRepository.add(book3);
 
 
 
@@ -206,7 +221,7 @@ public class LibraryTest {
         System.out.println("----------------------------------------------------------------------");
         System.out.println("----------------------------------------------------------------------");
 
-        BookRepository bookRepository = new BookRepository(entityManager);
+
         for (Book book : bookRepository.getAll()) {
             System.out.println(book.getId() + " " + book.getTitle() + " " + book.getPageCount());
         }
@@ -215,11 +230,11 @@ public class LibraryTest {
         System.out.println("----------------------------------------------------------------------");
         System.out.println("----------------------------------------------------------------------");
 
-        Specification<Book> bookByFilial = new BooksByFilial("Филилал 1");
-        List<Book> bookFilial = bookRepository.getBySpecification(bookByFilial);
-        for (Book book : bookFilial) {
-            System.out.println(book.getTitle());
+
+        for (Filial filial : filialRepository.getAll()) {
+            System.out.println(filial.getLibrary().getName() + " " + filial.getName() + " " + filial.getBooks());
         }
+
 
 
 
