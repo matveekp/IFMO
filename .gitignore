@@ -1,14 +1,11 @@
 .idea/*
 out/*
-IFMO.iml
 target/
 .idea/
 out/
 .idea
 .repository/
-*.iml
 *.iws
 *.jrtc
 *.info
-*.jar
 
