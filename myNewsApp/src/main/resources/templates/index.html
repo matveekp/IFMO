@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--Создаем меню-->
+<a href="/news/add">Добавить новость</a>
+<a href="/getRssReader">getRssReader</a>
+<h3></h3>
+<h3></h3>
+<a href="/test">Тест</a>
+
+
+</h3>
+</h3>
+<h3>Лента новостей:</h3>
+</h3>
+</h3>
+
+
+
+
+<th:block th:each="item : ${allNews}">
+    <tr>
+        <td th:text="${item.title}">...</td>
+        <td th:text="${item.newsText}">...</td>
+    </tr>
+    <tr>
+        <td colspan="2" th:text="${item.newsDate}">...</td>
+    </tr>
+</th:block>
+
+
+</body>
+</html>

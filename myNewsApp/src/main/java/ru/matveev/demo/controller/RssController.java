@@ -1,5 +1,6 @@
 package ru.matveev.demo.controller;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.w3c.dom.Document;
@@ -17,22 +21,31 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 
+import ru.matveev.demo.entity.News;
 import ru.matveev.demo.entity.RssBean;
+import ru.matveev.demo.repositories.RssBeanRepository;
 
 
 @Controller
-@RequestMapping("/rss")
 public class RssController {
+    @Autowired
+    private RssBeanRepository rssBeanRepository;
 
-    private URL rssUrl = null;
+
+    private URL rssUrl; ;
     private List<RssBean> rssList = null;
 
-//    @RequestMapping("/getRssReader")
-    @RequestMapping(value = "/getRssReader" , method = RequestMethod.GET)
-    public String getRssReader(HttpServletRequest request, HttpServletResponse response) {
+
+    //    @RequestMapping("/getRssReader")
+    @RequestMapping(value = "/rssReader" , method = RequestMethod.GET)
+    public String getRssReader(@ModelAttribute RssBean event, Model model) {
+
         rssList = new ArrayList<RssBean>();
+
         try {
-            rssUrl = new URL("http://www.springcome.me/?feed=rss2");
+            System.out.println("hello!");
+//           rssUrl = new URL("http://www.springcome.me/?feed=rss2");
+            rssUrl = new URL("http://feeds.bbci.co.uk/news/world/rss.xml");
 
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document doc = builder.parse(rssUrl.openStream());
@@ -45,14 +58,24 @@ public class RssController {
                 rss.setDescription(getValue(item, "description"));
                 rss.setLink(getValue(item, "link"));
                 rssList.add(rss);
+
+                model.addAttribute("rss", new RssBean());
+
+                rssBeanRepository.save(rss);
+
+                System.out.println(rss.getTitle() +"         " + rss.getDescription() +"         " + rss.getLink());
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        request.setAttribute("rss", rssList);
+        model.addAttribute("rss", rssList);
 
-        return "rss/rssReader";
+//        return "rss/rssReader";
+        return "rssReader";
+
+
+
     }
 
     private String getValue(Element parent, String nodeName) {
