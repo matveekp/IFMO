@@ -1,13 +1,10 @@
-package entity;
+package ru.matveev.demo.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 @Entity
 @Table
@@ -22,7 +19,7 @@ public class News {
 
     // раз дата придет строчкой из формы, то ее нужно конвертировать. поэтому используется аннотация. Это возможнотсь спринга
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") //T - это разделитель для форматирования, через пробел нельзя
-    private LocalDateTime newsDate;
+    private LocalDateTime newsDate = LocalDateTime.now();
 
     public int getId() {
         return id;

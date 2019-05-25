@@ -1,6 +1,6 @@
-package repositories;
+package ru.matveev.demo.repositories;
 
-import entity.News;
+import ru.matveev.demo.entity.News;
 import org.springframework.data.repository.CrudRepository;
 
 
