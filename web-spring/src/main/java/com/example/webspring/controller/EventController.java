@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import static com.example.webspring.specifications.EventSpecification.eventByTitle;
+
 @Controller
 public class EventController {
     @Autowired
@@ -40,6 +42,10 @@ public class EventController {
     @RequestMapping(value = "/event/info", method = RequestMethod.POST)
     private String showEventInfo(@RequestParam(name = "eventId", required = true, defaultValue = "1") int eventId,
                                  Model model){
+
+
+        eventRepository.findOne(eventByTitle("title"));
+
 
         model.addAttribute("event", eventRepository.findById(eventId));
 
