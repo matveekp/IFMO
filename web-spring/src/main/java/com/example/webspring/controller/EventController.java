@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class EventController {
@@ -27,6 +28,25 @@ public class EventController {
         eventRepository.save(event);
         model.addAttribute("addInfo", event.getEventTitle()); //передаем оратно название события
         return "add_event";
+    }
+
+    @RequestMapping(value = "/event/info", method = RequestMethod.GET)
+    public String infoForm(Model model){
+        model.addAttribute("events", eventRepository.findAll());
+
+        return "event_info";
+    }
+
+    @RequestMapping(value = "/event/info", method = RequestMethod.POST)
+    private String showEventInfo(@RequestParam(name = "eventId", required = true, defaultValue = "1") int eventId,
+                                 Model model){
+
+        model.addAttribute("event", eventRepository.findById(eventId));
+
+
+
+
+        return "event_info";
     }
 
 

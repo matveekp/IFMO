@@ -1,6 +1,7 @@
 package com.example.webspring.controller;
 
 import com.example.webspring.entity.AppUser;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,7 +19,7 @@ public class UserController {
         return "registration";
     }
 
-    @RequestMapping(value = "/user/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/add", method = RequestMethod.POST)
     public String submitForm(@ModelAttribute @Valid AppUser appUser, BindingResult result){
 
         if (result.hasErrors()){ // если форма заполнена с ошибками
