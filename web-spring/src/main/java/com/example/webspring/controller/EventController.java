@@ -25,6 +25,7 @@ public class EventController {
     private String submitForm(@ModelAttribute Event event, Model model) {
 
         eventRepository.save(event);
+        model.addAttribute("addInfo", event.getEventTitle()); //передаем оратно название события
         return "add_event";
     }
 

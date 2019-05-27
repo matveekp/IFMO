@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>Форма регистрации участника</h3>
+
+<form method="post" th:action="@{/student/add}" th:object="${student}">
+
+    <!--// выбор универа и сбытий из списка-->
+    <div>
+        <!--name="universityId" сами придумали эту переменную-->
+        <select name="universityId">
+            <!--option это отдельынй элемент списка, а select это весь список, у него есть имя universityId-->
+            <option th:each="university : ${universities}"
+                    th:text="${university.universityName}"
+                    th:value="${university.id}"
+            >
+            </option>
+        </select>
+
+    </div>
+
+    <div>
+        <select name="eventId">
+            <option th:each="event : ${events}"
+                    th:text="${event.eventTitle}"
+                    th:value="${event.id}"
+            >
+            </option>
+        </select>
+    </div>
+
+
+    <div><input type="text" th:field="*{studentName}" placeholder="Введите имя студента"></div>
+    <div><input type="text" th:field="*{studentCode}" placeholder="Введите код студента"></div>
+
+    <div><input type="submit" value="Добавить"></div>
+
+
+    <p><a href="/">На главную страницу</a></p>
+</form>
+
+
+</body>
+</html>
