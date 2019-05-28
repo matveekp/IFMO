@@ -21,14 +21,12 @@ public class RssBean {
 
     private String title;
     private String description;
-    private String link;
-
+//    private String link;
     private URL url;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime newsDate;
 
-//    private String dateTime;
 
     public String getTitle() {
         return title;
@@ -42,12 +40,13 @@ public class RssBean {
     public void setDescription(String description) {
         this.description = description;
     }
-    public String getLink() {
-        return link;
-    }
-    public void setLink(String link) {
-        this.link = link;
-    }
+
+//    public String getLink() {
+//        return link;
+//    }
+//    public void setLink(String link) {
+//        this.link = link;
+//    }
 
     public int getId() {
         return id;
@@ -72,10 +71,5 @@ public class RssBean {
     public void setUrl(URL url) {
         this.url = url;
     }
-
-    //
-//    public void setDateTime() {
-//        this.dateTime = getNewsDate().getDayOfMonth() + " " + getNewsDate().getMonth() + " " + getNewsDate().getYear() + " " + getNewsDate().getHour() + ":" + getNewsDate().getMinute();
-//    }
 
 }
