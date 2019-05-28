@@ -33,7 +33,7 @@ public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String startForm(@ModelAttribute RssBean rssBean, Model model) {
 
-        ArrayList<String> urls = new ArrayList<>();
+        List<String> urls = new ArrayList<>();
 
 //        urls.add("http://russian.rt.com/rss/");
         urls.add("http://feeds.bbci.co.uk/news/world/rss.xml");
