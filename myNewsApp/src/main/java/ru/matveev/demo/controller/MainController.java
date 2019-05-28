@@ -33,43 +33,36 @@ public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String startForm(@ModelAttribute RssBean rssBean, Model model) {
 
-       // String rssUrl = "http://feeds.bbci.co.uk/news/world/rss.xml";
-
         ArrayList<String> urls = new ArrayList<>();
 
 //        urls.add("http://russian.rt.com/rss/");
-
-            urls.add("http://feeds.bbci.co.uk/news/world/rss.xml");
-
-
+        urls.add("http://feeds.bbci.co.uk/news/world/rss.xml");
 
         for (String rssUrl : urls) {
 
+            try (XmlReader reader = new XmlReader(new URL(rssUrl))) {
+                SyndFeed feed = new SyndFeedInput().build(reader);
 
+                for (SyndEntry entry : feed.getEntries()) {
+                    RssBean rss = new RssBean();
+                    SyndContent syndContent = entry.getDescription();
 
-        try (XmlReader reader = new XmlReader(new URL(rssUrl))) {
-            SyndFeed feed = new SyndFeedInput().build(reader);
+                    rss.setTitle(entry.getTitle());
+                    rss.setDescription(syndContent.getValue());
+                    rss.setLink(entry.getLink());
+                    rss.setNewsDate(convertToLocalDateViaInstant(entry.getPublishedDate()));
 
-            for (SyndEntry entry : feed.getEntries()) {
-                RssBean rss = new RssBean();
-                SyndContent syndContent = entry.getDescription();
+                    rss.setUrl(new URL(entry.getUri()));
 
-                rss.setTitle(entry.getTitle());
-                rss.setDescription(syndContent.getValue());
-                rss.setLink(entry.getLink());
-                rss.setNewsDate(convertToLocalDateViaInstant(entry.getPublishedDate()));
+                    System.out.println(rss.getUrl());
 
-                rss.setUrl(new URL(entry.getUri()));
+                    rssBeanRepository.save(rss);
 
-                System.out.println(rss.getUrl());
+                }
 
-                rssBeanRepository.save(rss);
-
+            } catch (FeedException | IOException e) {
+                e.printStackTrace();
             }
-
-        } catch (FeedException | IOException e) {
-            e.printStackTrace();
-        }
 
         }
 
