@@ -34,13 +34,9 @@ public class MainController {
     public String startForm(@ModelAttribute RssBean rssBean, Model model) {
 
         List<String> urls = new ArrayList<>();
-
-
         urls.add("http://rss.garant.ru/news/");
         urls.add("http://www.vesti.ru/vesti.rss");
         urls.add("http://www.vsesmi.ru/rss/19/");
-
-
 
 
         for (String rssUrl : urls) {
