@@ -14,18 +14,16 @@
 </h3>
 
 
-        <div th:each="news : ${allNews}">
-            <p th:text="${news.title}"></p>
-            <p th:text="${news.description}"></p>
-            <p th:text="${news.link}"></p>
-            <p th:text="${news.newsDate}"></p>
-            <h1>----------------------------------</h1>
-        </div>
+<div th:each="news : ${allNews}">
+    <p th:text="${news.title}"></p>
+    <p th:text="${news.description}"></p>
+<!--    <p th:text="${news.link}"></p>-->
+    <p th:text="${news.newsDate}"></p>
+    <!--            <p th:text="${news.dateTime}"></p>-->
 
-
-
-
-
+    <a th:href="${news.url}">Подробнее</a>
+    <h1>----------------------------------</h1>
+</div>
 
 
 </body>

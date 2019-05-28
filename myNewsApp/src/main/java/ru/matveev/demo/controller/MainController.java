@@ -59,6 +59,10 @@ public class MainController {
                 rss.setLink(entry.getLink());
                 rss.setNewsDate(convertToLocalDateViaInstant(entry.getPublishedDate()));
 
+                rss.setUrl(new URL(entry.getUri()));
+
+                System.out.println(rss.getUrl());
+
                 rssBeanRepository.save(rss);
 
             }
