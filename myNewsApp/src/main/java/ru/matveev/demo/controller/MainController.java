@@ -35,11 +35,13 @@ public class MainController {
 
         List<String> urls = new ArrayList<>();
 
-//        urls.add("http://russian.rt.com/rss/");
-//        urls.add("http://feeds.bbci.co.uk/news/world/rss.xml");
-//        urls.add("http://rss.garant.ru/news/");
 
+        urls.add("http://rss.garant.ru/news/");
         urls.add("http://www.vesti.ru/vesti.rss");
+        urls.add("http://www.vsesmi.ru/rss/19/");
+
+
+
 
         for (String rssUrl : urls) {
 
