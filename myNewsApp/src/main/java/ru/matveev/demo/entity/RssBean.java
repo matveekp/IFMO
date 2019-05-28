@@ -3,10 +3,7 @@ package ru.matveev.demo.entity;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.net.URL;
 import java.time.LocalDateTime;
 
@@ -20,6 +17,7 @@ public class RssBean {
     private int id;
 
     private String title;
+    @Column(length=1000000)
     private String description;
 //    private String link;
     private URL url;
