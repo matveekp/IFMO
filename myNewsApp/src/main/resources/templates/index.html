@@ -18,8 +18,8 @@
     <p th:text="${news.title}"></p>
     <p th:text="${news.description}"></p>
 <!--    <p th:text="${news.link}"></p>-->
-    <p th:text="${news.newsDate}"></p>
-    <!--            <p th:text="${news.dateTime}"></p>-->
+<!--    <p th:text="${news.newsDate}"></p>-->
+     <p th:text="${#temporals.format(news.newsDate, 'yyyy-MM-dd HH:mm:ss')}">startTime</p>
 
     <a th:href="${news.url}">Подробнее</a>
     <h1>----------------------------------</h1>
