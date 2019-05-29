@@ -23,6 +23,7 @@ public class Client {
 //        builder.addQueryParameter("title", "Java");      //http://localhost:8080/courses?title=Java
 
 
+
         Request request = new Request.Builder()
                 .addHeader("Authorization", authData)
                 .url(url)
