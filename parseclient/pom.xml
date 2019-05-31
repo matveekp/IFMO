@@ -31,8 +31,41 @@
         </dependency>
 
 
-
     </dependencies>
+
+
+    <build>
+
+        <plugins>
+            <plugin>
+                <!-- сбор в jar файл и подключение всех библиотек (не спринг, там свой плагин есть)-->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>shade</goal>
+                    </goals>
+                    </execution>
+                </executions>
+
+                    <!-- делаем jar файл исполняемым-->
+                    <configuration>
+                        <transformers>
+                            <transformer implementaion="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <!-- указываем класс где точка входа (main)-->
+                                <mainClass>Client</mainClass>
+                            </transformer>
+                        </transformers>
+
+                    </configuration>
+
+            </plugin>
+
+        </plugins>
+
+    </build>
 
 
 </project>
