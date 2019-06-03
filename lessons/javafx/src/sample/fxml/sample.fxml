@@ -11,12 +11,14 @@
       <Label contentDisplay="TOP" text="Все задачи" BorderPane.alignment="CENTER" />
    </top>
    <center>
-      <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <ListView fx:id="allTasks" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
       <HBox prefHeight="26.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#openAddTaskWindow" prefHeight="25.0" prefWidth="127.0" text="Добавить задачу" textAlignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#closeTasks" text="Завершить" />
+            <Button alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#showChart" text="Charts" />
          </children></HBox>
    </bottom>
 </BorderPane>

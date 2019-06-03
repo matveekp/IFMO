@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity"
+      maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="sample.controllers.AddTask"
+>
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" text="Добавление задачи" />
+      <TextField fx:id="taskTitle" prefHeight="25.0" prefWidth="600.0" promptText="Название задачи" />
+      <TextArea fx:id="taskDescription" prefHeight="120.0" prefWidth="600.0" promptText="Описание задачи" />
+      <DatePicker fx:id="taskDate" prefHeight="52.0" prefWidth="174.0" promptText="выберите дату" />
+      <Button mnemonicParsing="false" onAction="#addTask" text="Добавить" />
    </children>
 </VBox>
