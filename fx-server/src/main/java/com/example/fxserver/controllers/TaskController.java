@@ -23,7 +23,12 @@ public class TaskController {
     }
 
     @PostMapping("/tasks")
-    Task addTask(@RequestBody Task task){
+    Task addTask(@RequestBody Task task){ // request body данные придут в тексте сообщения
         return taskRepository.save(task);
+    }
+
+    @DeleteMapping("/tasks/{id}")
+    void deleteTaskById(@PathVariable Integer id){
+        taskRepository.deleteById(id);
     }
 }

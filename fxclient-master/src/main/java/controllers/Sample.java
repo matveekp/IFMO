@@ -11,13 +11,19 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Task;
+import model.TaskRequest;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Sample implements Initializable {
@@ -40,7 +46,7 @@ public class Sample implements Initializable {
 
         updateScene(addTaskController.getTask());
     }
-    private void updateScene(Task task){
+    private void updateScene(Task task) throws FileNotFoundException {
         if (task == null){
             System.out.println("Задача не передана");
             return;
@@ -48,9 +54,15 @@ public class Sample implements Initializable {
 
         Label title = new Label(task.getTitle());
         Label description = new Label(task.getDescription());
-        Label date = new Label(task.getDate());
+        Label date = new Label(task.getTaskDate());
 
-        VBox vBox = new VBox(title, description, date);
+        FileInputStream inputStream = new FileInputStream(task.getImagePath());
+        Image image = new Image(inputStream);
+        ImageView imageView =new ImageView(image);
+        imageView.setFitHeight(100);
+        imageView.setFitWidth(100);
+
+        VBox vBox = new VBox(title, description, date, imageView);
         vBox.setAlignment(Pos.TOP_CENTER);
 
         allTasks.getItems().add(vBox);
@@ -69,6 +81,19 @@ public class Sample implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         selectionModel = allTasks.getSelectionModel();
         selectionModel.setSelectionMode(SelectionMode.MULTIPLE);
+
+        TaskRequest taskRequest = new TaskRequest();
+        try {
+            List<Task> tasks = taskRequest.getRequest();
+            for (Task task : tasks) {
+                updateScene(task);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 

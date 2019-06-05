@@ -1,16 +1,27 @@
 package model;
 
-import java.time.LocalDate;
-
 public class Task {
+    private int id;
     private String title;
     private String description;
-    private String date;
+    private String taskDate;
+    private String imagePath;
 
-    public Task(String title, String description, String date) {
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public Task() {
+    }
+
+    public Task(String title, String description, String taskDate) {
         this.title = title;
         this.description = description;
-        this.date = date;
+        this.taskDate = taskDate;
     }
 
     public String getTitle() {
@@ -21,7 +32,15 @@ public class Task {
         return description;
     }
 
-    public String getDate() {
-        return date;
+    public String getTaskDate() {
+        return taskDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
