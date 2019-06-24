@@ -7,8 +7,13 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Data
-@Builder
+@Data //	генерация всех служебных методов,
+//заменяет сразу команды @ToString, @EqualsAndHashCode,
+//        Getter, Setter, @RequiredArgsConstructor
+@Builder //реализация паттерна bulder,
+//Singular – используется для объектов в
+//        единственном экземпляре (добавления элемента
+//        в коллекции и т.п.)
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
