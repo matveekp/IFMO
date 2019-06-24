@@ -10,6 +10,7 @@ enum MessagePriority {
         for (MessagePriority mp: values()){
             if (ord == mp.ordinal()) {
                 return mp;
+
             }
         }
         throw new AssertionError("Wrong ordinal: " + ord);
