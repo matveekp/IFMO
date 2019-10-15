@@ -10,7 +10,7 @@ public class UnitTest {
 
 //    @BeforeAll
 //        //необязательный метод
-//    void beforAll() {
+//    void  beforAll() {
 //        System.out.println("вызывается перед выполнением всех тестов");
 //    }
 //
@@ -81,11 +81,12 @@ public class UnitTest {
 
     @ParameterizedTest
     @MethodSource("units")
-        // задается имя метода, который будет возврщать юнитов 1 и 2
+        // задается имя метода, который будет возврщать юнитов 1 и 2  ( См. ниже метод, он возвращает юнитов)
     void attackOther(Unit unit1, Unit unit2) {
 
+
         unit1.attack(unit2);
-        assertEquals(-2, unit2.getHealth());
+        System.out.println(unit2.getHealth());
     }
 
     private static Unit[][] units() throws Exception {
